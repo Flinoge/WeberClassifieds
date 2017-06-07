@@ -1,0 +1,86 @@
+// Core variables and mixins
+@import "bootstrap-variables";
+@import "bootstrap_src/_variables";
+@import "custom-variables";
+@import "bootstrap_src/_mixins";
+@import "core/_mixins";
+// Reset and dependencies
+@import "bootstrap_src/_normalize";
+@import "bootstrap_src/_print";
+// Core CSS
+@import "bootstrap_src/_reboot";
+@import "bootstrap_src/_type";
+@import "bootstrap_src/_images";
+@import "bootstrap_src/_code";
+@import "bootstrap_src/_grid";
+@import "bootstrap_src/_tables";
+@import "bootstrap_custom/_tables";
+@import "bootstrap_src/_forms";
+@import "bootstrap_src/_buttons";
+@import "bootstrap_custom/_buttons";
+// Components
+@import "bootstrap_src/_transitions";
+@import "bootstrap_src/_dropdown";
+@import "bootstrap_custom/_dropdown";
+@import "bootstrap_src/_button-group";
+@import "bootstrap_src/_input-group";
+@import "bootstrap_custom/_input-group";
+//@import "custom-forms";
+@import "bootstrap_src/_nav";
+@import "bootstrap_custom/_nav";
+@import "bootstrap_src/_navbar";
+@import "bootstrap_custom/_navbar";
+@import "bootstrap_src/_card";
+@import "bootstrap_custom/_card";
+@import "bootstrap_src/_breadcrumb";
+@import "bootstrap_custom/_breadcrumb";
+@import "bootstrap_src/_pagination";
+@import "bootstrap_src/_badge";
+@import "bootstrap_custom/_badge";
+//@import "jumbotron";
+@import "bootstrap_src/_alert";
+@import "bootstrap_src/_progress";
+@import "bootstrap_custom/_progress";
+@import "bootstrap_src/_media";
+@import "bootstrap_src/_list-group";
+@import "bootstrap_src/_responsive-embed";
+@import "bootstrap_src/_close";
+// Components w/ JavaScript
+@import "bootstrap_src/_modal";
+@import "bootstrap_custom/_modal";
+@import "bootstrap_src/_tooltip";
+@import "bootstrap_src/_popover";
+@import "bootstrap_src/_carousel";
+// Utility classes
+@import "bootstrap_src/_utilities";
+// Vendors Styles
+@import "vendors/_vendors";
+// CoreUI Styles
+// Additional typography
+@import "core/_typography";
+// Animations
+@import "core/_animate";
+// Core files
+@import "core/_grid";
+@import "core/_layout";
+@import "core/_navigation";
+@import "core/_aside";
+@import "core/_loading";
+@import "core/_widgets";
+@import "core/_footer";
+@import "core/_buttons";
+@import "core/_others";
+@import "core/_breadcrumb-menu";
+@import "core/_avatars";
+@import "core/_callout";
+@import "core/_switches";
+@import "core/_charts";
+@import "core/_utilities-border";
+// Temporary fixes
+@import "core/_temp";
+// Mobile View
+@import "core/_mobile";
+// Custom styles
+@import "custom";
+// UI Kits
+@import "uikits/_uikits";

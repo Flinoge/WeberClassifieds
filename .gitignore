@@ -1,0 +1,23 @@
+# Configuration Files
+*.ini
+settings.py
+
+# DB
+*.sqlite
+
+# Byte-compiled / Optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / Packaging
+dist/
+node_modules/
+
+# Workspace Files
+.idea/**
+.idea/**/**
+
+.DS_Store
