@@ -17,6 +17,13 @@
     components: {
     },
     computed: {
+    },
+    methods: {
+    },
+    data () {
+      return {
+        example: 'Hi'
+      }
     }
   }
 </script>
