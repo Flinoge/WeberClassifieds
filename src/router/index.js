@@ -8,6 +8,7 @@ import _Dashboard from 'containers/Dashboard'
 // Views
 import Main from 'views/Main'
 import Login from 'views/Login'
+import Signup from 'views/Signup'
 
 // Views - Components
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/signup',
+      name: 'Signup',
+      component: Signup
     }
   ]
 })
