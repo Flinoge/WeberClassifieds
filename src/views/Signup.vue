@@ -14,81 +14,165 @@
           <!--Main Content-->
           <div style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
 
-            <div class="form-group">
-              <label class="control-label col-sm-12" for="wnumber">W# <span class="text-danger">*</span></label>
-              <div class="col-sm-12">
-                <input class="form-control" name="wnumber" type="text" id="wnumber"/>
-              </div>
-            </div>
 
             <div class="form-group">
-              <label class="control-label col-sm-12" for="firstname">First Name <span class="text-danger">*</span></label>
               <div class="col-sm-12">
-                <input class="form-control" name="firstname" type="text" id="firstname"/>
+                <ui-textbox
+                  floating-label
+                  label="W#"
+                  placeholder="Enter your W#"
+                  error="This field is required"
+                  v-model="wnumber"
+
+                  :invalid="wnumberTouched && wnumber.length === 0"
+                  @touch="wnumberTouched = true"
+
+                  required
+                ></ui-textbox>
               </div>
             </div>
-
             <div class="form-group">
-              <label class="control-label col-sm-12" for="lastname">Last Name <span class="text-danger">*</span></label>
               <div class="col-sm-12">
-                <input class="form-control" name="lastname" type="text" id="lastname"/>
-              </div>
-            </div>
+                <ui-textbox
+                  floating-label
+                  label="First Name"
+                  placeholder="Enter your first name"
+                  error="This field is required"
+                  v-model="fname"
 
-            <div class="form-group">
-              <label class="control-label col-sm-12" for="email">Email Address <span class="text-danger">*</span></label>
-              <div class="col-sm-12">
-                <input class="form-control" name="email" type="text" id="email"/>
-              </div>
-            </div>
+                  :invalid="fnameTouched && fname.length === 0"
+                  @touch="fnameTouched = true"
 
-            <div class="form-group">
-              <label class="control-label col-sm-12" for="addressline1">Address Line 1 <span class="text-danger">*</span></label>
-              <div class="col-sm-12">
-                <input class="form-control" name="addressline1" type="text" id="addressline1"/>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-12" for="addressline2">Address Line 2</label>
-              <div class="col-sm-12">
-                <input class="form-control" name="addressline2" type="text" id="addressline2"/>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-12" for="citystate">City/State <span class="text-danger">*</span></label>
-              <div class="col-sm-12">
-                <input class="form-control" name="citystate" type="text" id="citystate"/>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-12" for="zip">Zip <span class="text-danger">*</span></label>
-              <div class="col-sm-12">
-                <input class="form-control" name="zip" type="text" id="zip"/>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-12" for="password">Password <span class="text-danger">*</span></label>
-              <div class="col-sm-12">
-                <input class="form-control" name="password" type="text" id="password"/>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label col-sm-12" for="confirmpassword">Confirm Password <span class="text-danger">*</span></label>
-              <div class="col-sm-12">
-                <input class="form-control" name="confirmpassword" type="text" id="confirmpassword"/>
+                  required
+                ></ui-textbox>
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-sm-12">
-                <div class="col-sm-12">
-                  <button class="btn-primary">Sign up</button>
-                </div>
+                <ui-textbox
+                  floating-label
+                  autocomplete="off"
+                  error="This field is required"
+                  label="Last Name"
+                  placeholder="Enter your last name"
+
+                  v-model="lname"
+
+                  :invalid="lnameTouched && lname.length === 0"
+                  @touch="lnameTouched = true"
+
+                  required
+
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
+                  label="Email"
+                  error="This field is required"
+                  placeholder="Enter your email"
+                  type="email"
+
+                  v-model="email"
+
+                  :invalid="emailTouched && email.length === 0"
+                  @touch="emailTouched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
+                  label="Address Line 1"
+                  placeholder="Enter your address"
+                  v-model="address1"
+                  error="This field is required"
+
+                  :invalid="address1Touched && address1.length === 0"
+                  @touch="address1Touched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
+                  label="Address Line 2"
+                  placeholder=""
+
+                  v-model="address2"
+                ></ui-textbox>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
+                  label="Zip"
+                  placeholder=""
+                  v-model="zip"
+                  error="This field is required"
+
+                  :invalid="zipTouched && zip.length === 0"
+                  @touch="zipTouched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
+                  label="Password"
+                  placeholder=""
+                  type="password"
+                  v-model="password"
+                  error="Password must be greater than 8 characters"
+
+                  :invalid="passwordTouched && password.length < 8"
+                  @touch="passwordTouched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
+                  label="Confirm Password"
+                  placeholder=""
+                  type="password"
+                  v-model="confirmpassword"
+                  error="Passwords must match"
+
+                  :invalid="confirmpasswordTouched && confirmpassword != password"
+                  @touch="confirmpasswordTouched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <button class="btn-primary btn" style="border-color: black; background-color: rgb(73, 38, 101);">Sign up</button>
               </div>
             </div>
 
@@ -113,11 +197,35 @@
 </template>
 
 <script>
+  import UiTextbox from 'keen-ui/src/UiTextbox.vue'
+
   export default {
     name: 'full',
     components: {
+      UiTextbox
     },
     computed: {
+    },
+    data () {
+      return {
+        wnumber: '',
+        wnumberTouched: false,
+        fname: '',
+        fnameTouched: false,
+        lname: '',
+        lnameTouched: false,
+        email: '',
+        emailTouched: false,
+        address1: '',
+        address1Touched: false,
+        address2: '',
+        zip: '',
+        zipTouched: false,
+        password: '',
+        passwordTouched: false,
+        confirmpassword: '',
+        confirmpasswordTouched: false
+      }
     }
   }
 </script>
