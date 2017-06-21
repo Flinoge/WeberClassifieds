@@ -1,8 +1,8 @@
 {
-  "name": "genisys",
+  "name": "weberclassifieds",
   "version": "1.0.0",
   "description": "",
-  "author": "Cody Squadroni <codysquadroni@weber.edu>",
+  "author": "Trevor Orgill (Trevororgill@weber.edu ",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
