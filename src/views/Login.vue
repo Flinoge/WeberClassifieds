@@ -3,7 +3,7 @@
     <div class="app-body">
       <main class="main">
         <div class="container-fluid">
-
+          
           <!--Top Banner-->
           <div style=" background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
             <div class="col-sm-12">
@@ -14,35 +14,29 @@
           <!--Main Content-->
           <div style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
 
-            <div class="form-group">
-              <div class="col-sm-12">
-                <ui-textbox
-                  floating-label
-                  label="W# or Email"
-                  placeholder=""
-                  v-model="username"
-                ></ui-textbox>
-              </div>
+            <div class="col-sm-12">
+              <ui-textbox
+                floating-label
+                label="Email"
+                placeholder=""
+                v-model="email"
+              ></ui-textbox>
             </div>
 
-            <div class="form-group">
-              <div class="col-sm-12">
-                <ui-textbox
-                  floating-label
-                  label="Password"
-                  placeholder=""
-                  type="password"
-                  v-model="password"
-                ></ui-textbox>
-              </div>
+            <div class="col-sm-12">
+              <ui-textbox
+                floating-label
+                label="Password"
+                placeholder=""
+                type="password"
+                v-model="password"
+              ></ui-textbox>
             </div>
 
             <br>
 
-            <div class="form-group">
-              <div class="col-sm-12">
-                <button class="btn-primary btn" style="border-color: black; background-color: rgb(73, 38, 101);">Log In</button>
-              </div>
+            <div class="col-sm-12">
+              <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size">Log In</ui-button>
             </div>
 
           </div>
@@ -67,17 +61,19 @@
 
 <script>
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
+  import UiButton from 'keen-ui/src/UiButton.vue'
 
   export default {
     name: 'full',
     components: {
-      UiTextbox
+      UiTextbox,
+      UiButton
     },
     computed: {
     },
     data () {
       return {
-        username: '',
+        email: '',
         password: ''
       }
     }
