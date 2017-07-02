@@ -3,9 +3,9 @@
     <div class="app-body">
       <main class="main">
         <div class="container-fluid">
-          <!--Need to add city state and major -->
+
           <!--Top Banner-->
-          <div style=" background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
+          <div style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
             <div class="col-sm-12">
               Sign up for a Weber Classifieds Account
             </div>
@@ -13,7 +13,6 @@
 
           <!--Main Content-->
           <div style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
-
 
             <div class="form-group">
               <div class="col-sm-12">
@@ -31,6 +30,7 @@
                 ></ui-textbox>
               </div>
             </div>
+
             <div class="form-group">
               <div class="col-sm-12">
                 <ui-textbox
@@ -63,7 +63,6 @@
                   @touch="lnameTouched = true"
 
                   required
-
                 ></ui-textbox>
               </div>
             </div>
@@ -110,11 +109,45 @@
                   floating-label
                   label="Address Line 2"
                   placeholder=""
-
                   v-model="address2"
                 ></ui-textbox>
               </div>
             </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
+                  label="City"
+                  placeholder="Enter your city"
+                  v-model="city"
+                  error="This field is required"
+
+                  :invalid="cityTouched && city.length === 0"
+                  @touch="cityTouched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
+                  label="State"
+                  placeholder="Enter your state"
+                  v-model="state"
+                  error="This field is required"
+
+                  :invalid="stateTouched && state.length === 0"
+                  @touch="stateTouched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
             <div class="form-group">
               <div class="col-sm-12">
                 <ui-textbox
@@ -219,6 +252,10 @@
         address1: '',
         address1Touched: false,
         address2: '',
+        city: '',
+        cityTouched: false,
+        state: '',
+        stateTouched: false,
         zip: '',
         zipTouched: false,
         password: '',

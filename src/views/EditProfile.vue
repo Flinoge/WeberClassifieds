@@ -4,43 +4,22 @@
       <main class="main">
         <div class="container-fluid">
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 80c9e20cd1026c0ecafad36dea5054b721a9caf2
           <!--Top Banner-->
           <div style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
             <div class="col-sm-12">
-              Login to Weber Classifieds
+              Edit your Weber Classifieds Profile
             </div>
           </div>
 
           <!--Main Content-->
           <div style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
 
-            <div class="col-sm-12">
-              <ui-textbox
-                floating-label
-                label="Email"
-                placeholder=""
-                v-model="email"
-              ></ui-textbox>
-            </div>
-
-            <div class="col-sm-12">
-              <ui-textbox
-                floating-label
-                label="Password"
-                placeholder=""
-                type="password"
-                v-model="password"
-              ></ui-textbox>
-            </div>
+            <!--Main Page Contents-->
 
             <br>
 
             <div class="col-sm-12">
-              <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size">Log In</ui-button>
+              <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size">Edit</ui-button>
             </div>
 
           </div>
@@ -48,7 +27,7 @@
           <!--Bottom Content-->
           <div style=" background-color: rgb(73, 38, 101); color: white; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding: 20px; font-size: 20px;">
             <div class="col-sm-12">
-              Don't have an account? Sign up <a href="/#/signup" style="color: white; text-decoration: underline;">here</a>
+              <!--Bottom Banner Content Needed?-->
             </div>
           </div>
 
@@ -63,23 +42,23 @@
   </div>
 </template>
 
-<script>
+<!--<script>
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
 
   export default {
-    name: 'full',
+
     components: {
       UiTextbox,
       UiButton
     },
     computed: {
+
     },
     data () {
       return {
-        email: '',
-        password: ''
+
       }
     }
   }
-</script>
+</script>-->

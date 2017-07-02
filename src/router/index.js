@@ -9,6 +9,8 @@ import _Dashboard from 'containers/Dashboard'
 import Main from 'views/Main'
 import Login from 'views/Login'
 import Signup from 'views/Signup'
+import Profile from 'views/Profile'
+import EditProfile from 'views/EditProfile'
 
 // Views - Components
 
@@ -44,6 +46,16 @@ export default new Router({
       path: '/signup',
       name: 'Signup',
       component: Signup
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile
+    },
+    {
+      path: '/editprofile',
+      name: 'EditProfile',
+      component: EditProfile
     }
   ]
 })
