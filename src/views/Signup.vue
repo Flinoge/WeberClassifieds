@@ -90,6 +90,25 @@
               <div class="col-sm-12">
                 <ui-textbox
                   floating-label
+                  autocomplete="off"
+                  error="This field is required"
+                  label="Degree"
+                  placeholder="Enter your degree/field of study"
+
+                  v-model="degree"
+
+                  :invalid="degreeTouched && degree.length === 0"
+                  @touch="degreeTouched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
                   label="Address Line 1"
                   placeholder="Enter your address"
                   v-model="address1"
@@ -249,6 +268,8 @@
         lnameTouched: false,
         email: '',
         emailTouched: false,
+        degree: '',
+        degreeTouched: false,
         address1: '',
         address1Touched: false,
         address2: '',
