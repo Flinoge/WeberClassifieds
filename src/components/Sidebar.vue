@@ -109,7 +109,7 @@
           placeholder="From"
           v-model="from"
         ></ui-textbox>
-        
+
         <ui-textbox
           floating-label
           label="To"

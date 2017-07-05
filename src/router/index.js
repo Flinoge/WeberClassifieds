@@ -6,7 +6,6 @@ import BootstrapVue from 'bootstrap-vue'
 import _Dashboard from 'containers/Dashboard'
 
 // Views
-import Main from 'views/Main'
 import Login from 'views/Login'
 import Signup from 'views/Signup'
 import Profile from 'views/Profile'
@@ -26,16 +25,8 @@ export default new Router({
   routes: [
     {
       path: '/dashboard',
-      redirect: '/home',
       name: 'Dashboard',
-      component: _Dashboard,
-      children: [
-        {
-          path: '/home',
-          name: 'Home',
-          component: Main
-        }
-      ]
+      component: _Dashboard
     },
     {
       path: '/',
