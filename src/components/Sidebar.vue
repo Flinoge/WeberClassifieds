@@ -1,7 +1,8 @@
 <template>
   <div class="sidebar">
     <div class="col-sm-12">
-      <ui-collapsible open style="background-color: white; color: black;">
+      <br>
+      <ui-collapsible style="background-color: white; color: black;">
         <div slot="header" style="color: black;">
           Categories
         </div>
@@ -14,37 +15,9 @@
         ></ui-checkbox>
 
         <ui-checkbox
-          value="appliances"
-          v-model="appliances"
-          label="Appliances"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="autoparts"
-          v-model="autoparts"
-          label="Auto Parts and Accessories"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="baby"
-          v-model="baby"
-          label="Baby"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
           value="books"
           v-model="books"
           label="Books and Media"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="clothing"
-          v-model="clothing"
-          label="Clothing and Apparel"
           color="accent"
         ></ui-checkbox>
 
@@ -72,14 +45,7 @@
         <ui-checkbox
           value="free"
           v-model="free"
-          label="FREE"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="furniture"
-          v-model="furniture"
-          label="Furniture"
+          label="Free"
           color="accent"
         ></ui-checkbox>
 
@@ -90,15 +56,9 @@
           color="accent"
         ></ui-checkbox>
 
-        <ui-checkbox
-          value="toys"
-          v-model="toys"
-          label="Toys"
-          color="accent"
-        ></ui-checkbox>
       </ui-collapsible>
 
-      <ui-collapsible open style="background-color: white; color: black;">
+      <ui-collapsible  style="background-color: white; color: black;">
         <div slot="header" style="color: black;">
           Price Range
         </div>
@@ -109,7 +69,7 @@
           placeholder="From"
           v-model="from"
         ></ui-textbox>
-        
+
         <ui-textbox
           floating-label
           label="To"
@@ -119,7 +79,7 @@
 
       </ui-collapsible>
 
-      <ui-collapsible open style="background-color: white; color: black;">
+      <ui-collapsible  style="background-color: white; color: black;">
         <div slot="header" style="color: black;">
           Listing Photos
         </div>
@@ -139,7 +99,7 @@
         ></ui-checkbox>
       </ui-collapsible>
 
-      <ui-collapsible open style="background-color: white; color: black;">
+      <ui-collapsible  style="background-color: white; color: black;">
         <div slot="header" style="color: black;">
           Listing Type
         </div>
@@ -159,7 +119,7 @@
         ></ui-checkbox>
       </ui-collapsible>
 
-      <ui-collapsible open style="background-color: white; color: black;">
+      <ui-collapsible  style="background-color: white; color: black;">
         <div slot="header" style="color: black;">
           Listing Posted
         </div>
@@ -193,7 +153,7 @@
         ></ui-checkbox>
       </ui-collapsible>
 
-      <ui-collapsible open style="background-color: white; color: black;">
+      <ui-collapsible  style="background-color: white; color: black;">
         <div slot="header" style="color: black;">
           Location
         </div>
@@ -205,6 +165,12 @@
           v-model="citystate"
         ></ui-textbox>
       </ui-collapsible>
+
+      <br>
+
+        <ui-button color="primary" style="border-color: black; width: 100%; text-align: center; background-color: rgb(73, 38, 101);" raised :size="size">Submit</ui-button>
+
+
     </div>
   </div>
 </template>
@@ -215,6 +181,7 @@
   import UiTabs from 'keen-ui/src/UiTabs.vue'
   import UiCheckbox from 'keen-ui/src/UiCheckbox.vue'
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
+  import UiButton from 'keen-ui/src/UiButton.vue'
 
   export default {
     components: {
@@ -222,7 +189,8 @@
       UiTab,
       UiTabs,
       UiCheckbox,
-      UiTextbox
+      UiTextbox,
+      UiButton
     },
     data () {
       return {

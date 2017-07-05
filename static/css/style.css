@@ -351,7 +351,7 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: #3d3f42;
-  background-color: #e4e5e6;
+  background-color: white;
 }
 
 [tabindex="-1"]:focus {
@@ -15257,7 +15257,7 @@ app-root {
 .sidebar {
   padding: 0;
   color: #fff;
-  background: #2a2c36;
+  background: #808080;
 }
 
 .sidebar .sidebar-close {
