@@ -16,7 +16,8 @@
     "vue-chart.js": "^0.2.0",
     "vue-datepicker": "^1.3.0",
     "vue-router": "^2.2.0",
-    "vue-strap": "github:wffranco/vue-strap"
+    "vue-strap": "github:wffranco/vue-strap",
+    "vuetable": "^1.5.12"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
