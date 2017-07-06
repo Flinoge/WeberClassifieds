@@ -1,0 +1,75 @@
+/* KEEN UI - UiTabs */
+.ui-tabs--text-color-active-primary .ui-tab-header-item.is-active {
+  outline:0 !important;
+  color: #20a8d8 !important;
+}
+
+ui-tab-header-item ui-tab-header-item--type-text is-active {
+  color: #20a8d8 !important;
+}
+
+.ui-tabs--indicator-color-primary .ui-tabs__active-tab-indicator {
+  background-color: #20a8d8 !important;
+}
+
+/* KEEN UI - UiFab */
+.fab-group {
+  align-items: flex-end !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  float: right !important;
+}
+
+.ui-fab {
+  outline:0 !important;
+  margin-right: 10px !important;
+}
+
+.ui-fab--color-primary {
+  background-color: #20a8d8 !important;
+  color: white !important;
+}
+
+.ui-fab--color-accent {
+  background-color: #4dbd74 !important;
+  color: white !important;
+}
+
+.ui-fab--color-danger {
+  background-color: #f86c6b !important;
+  color: white !important;
+}
+
+.ui-fab--color-warning {
+  background-color: #f8cb00 !important;
+  color: white !important;
+}
+
+/* KEEN UI - UiButton*/
+.ui-button--type-primary.ui-button--color-default {
+  background-color: #20a8d8 !important;
+  color: #FFFFFF !important;
+}
+
+.ui-tabs__header {
+  box-shadow: 0 2px 2px rgba(black, 0.2) !important;
+}
+
+/* KEEN UI - UiToolbar */
+
+.ui-toolbar--type-colored {
+  background-color: #f8f9fa !important;
+}
+
+/* KEEN UI - UiCollapsible */
+.ui-collapsible {
+  margin-bottom: 0rem !important;
+}
+
+.ui-collapsible__header {
+  outline:0 !important;
+}
+
+.ui-tabs__body {
+  padding: 0rem !important;
+}
