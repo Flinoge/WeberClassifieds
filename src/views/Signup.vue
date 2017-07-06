@@ -224,7 +224,8 @@
 
             <div class="form-group">
               <div class="col-sm-12">
-                <button class="btn-primary btn" style="border-color: black; background-color: rgb(73, 38, 101);">Sign up</button>
+                <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size">Sign up</ui-button>
+
               </div>
             </div>
 
@@ -250,11 +251,12 @@
 
 <script>
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
-
+  import UiButton from 'keen-ui/src/UiButton.vue'
   export default {
     name: 'full',
     components: {
-      UiTextbox
+      UiTextbox,
+      UiButton
     },
     computed: {
     },

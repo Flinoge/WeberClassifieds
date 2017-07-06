@@ -5,7 +5,7 @@
       <sidebar/>
       <main class="main">
         <div class="container-fluid">
-          <router-view></router-view>
+          <items></items>
         </div>
       </main>
     </div>
@@ -16,12 +16,14 @@
 <script>
   import sidebar from '../components/Sidebar.vue'
   import topbar from '../components/Topbar.vue'
+  import items from '../components/items.vue'
 
   export default {
     name: 'full',
     components: {
       sidebar,
-      topbar
+      topbar,
+      items
     },
     computed: {
     },
