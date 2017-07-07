@@ -15090,6 +15090,7 @@ app-root {
 
 .sidebar-fixed .sidebar {
   position: fixed;
+  width: 250px;
   height: 100%;
 }
 
