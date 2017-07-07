@@ -14,7 +14,7 @@
           <a class="nav-link" href="/#/dashboard">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#/profile">Profile</a>
+          <a class="nav-link" href="/#/editprofile">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/#/">Log Out</a>
