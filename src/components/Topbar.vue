@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-toggleable-md" style="background-color: rgb(73, 38, 101); margin-bottom: -55px;">
-    <button class="navbar-toggler navbar-toggler-right"  style="color:white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" style="color:white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" style="color:white" href="#">Weber Classifieds</a>
