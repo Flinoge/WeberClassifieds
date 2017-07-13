@@ -35,8 +35,10 @@
 
             <br>
 
+
+
             <div class="col-sm-12">
-              <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size">Log In</ui-button>
+              <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size"><router-link @click="test" style="color: white; text-decoration: none;" to="Dashboard">Log In</router-link></ui-button>
             </div>
 
           </div>
@@ -75,6 +77,11 @@
       return {
         email: '',
         password: ''
+      }
+    },
+    methods: {
+      test () {
+        alert('Log In Successful')
       }
     }
   }
