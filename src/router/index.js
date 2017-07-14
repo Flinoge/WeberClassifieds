@@ -10,6 +10,7 @@ import Login from 'views/Login'
 import Signup from 'views/Signup'
 import Profile from 'views/Profile'
 import EditProfile from 'views/EditProfile'
+import CreatePost from 'views/CreatePost'
 
 // Views - Components
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/editprofile',
       name: 'EditProfile',
       component: EditProfile
+    },
+    {
+      path: '/createpost',
+      name: 'CreatePost',
+      component: CreatePost
     }
   ]
 })
