@@ -5,21 +5,23 @@
         <div class="container-fluid">
 
           <!--Top Banner-->
-          <div style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
+          <div
+            style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
             <div class="col-sm-12">
               Login to Weber Classifieds
             </div>
           </div>
 
           <!--Main Content-->
-          <div style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
+          <div
+            style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
 
             <div class="col-sm-12">
               <ui-textbox
                 floating-label
-                label="Email"
+                label="Username"
                 placeholder=""
-                v-model="email"
+                v-model="username"
               ></ui-textbox>
             </div>
 
@@ -36,17 +38,20 @@
             <br>
 
 
-
             <div class="col-sm-12">
-              <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size"><router-link @click="test" style="color: white; text-decoration: none;" to="Dashboard">Log In</router-link></ui-button>
+              <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised
+                         size="sm" @click="login">Log In
+              </ui-button>
             </div>
 
           </div>
 
           <!--Bottom Content-->
-          <div style=" background-color: rgb(73, 38, 101); color: white; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding: 20px; font-size: 20px;">
+          <div
+            style=" background-color: rgb(73, 38, 101); color: white; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding: 20px; font-size: 20px;">
             <div class="col-sm-12">
-              Don't have an account? Sign up <a href="/#/signup" style="color: white; text-decoration: underline;">here</a>
+              Don't have an account? Sign up <a href="/#/signup"
+                                                style="color: white; text-decoration: underline;">here</a>
             </div>
           </div>
 
@@ -64,6 +69,7 @@
 <script>
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import axios from 'axios'
 
   export default {
     name: 'full',
@@ -71,17 +77,27 @@
       UiTextbox,
       UiButton
     },
-    computed: {
-    },
+    computed: {},
     data () {
       return {
-        email: '',
+        username: '',
         password: ''
       }
     },
     methods: {
-      test () {
-        alert('Log In Successful')
+      login () {
+        axios({
+          method: 'get',
+          url: 'http://g3project.sytes.net/weberclassifieds/authentication',
+          auth: {
+            username: this.username,
+            password: this.password
+          }
+        }).then(response => {
+          console.log(response)
+        }).catch(error => {
+          console.log(error)
+        })
       }
     }
   }

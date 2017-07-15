@@ -224,7 +224,7 @@
 
             <div class="form-group">
               <div class="col-sm-12">
-                <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size">Sign up</ui-button>
+                <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size" @click="signup">Sign up</ui-button>
 
               </div>
             </div>
@@ -257,6 +257,15 @@
     components: {
       UiTextbox,
       UiButton
+    },
+    methods: {
+      signup () {
+        this.$http.post('/user', '', {
+          headers: {
+            'url': localStorage.getItem('token')
+          }
+        })
+      }
     },
     computed: {
     },

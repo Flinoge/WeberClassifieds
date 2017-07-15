@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import BootstrapVue from 'bootstrap-vue'
+import VueResource from 'vue-resource'
 
 // Containers
 import _Dashboard from 'containers/Dashboard'
@@ -18,6 +19,7 @@ import CreatePost from 'views/CreatePost'
 
 Vue.use(Router)
 Vue.use(BootstrapVue)
+Vue.use(VueResource)
 
 export default new Router({
   mode: 'hash',
