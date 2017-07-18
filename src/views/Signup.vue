@@ -71,6 +71,25 @@
               <div class="col-sm-12">
                 <ui-textbox
                   floating-label
+                  autocomplete="off"
+                  :error="error"
+                  label="Username"
+                  placeholder="Enter your username"
+
+                  v-model="username"
+
+                  :invalid="(usernameTouched && username.length === 0) || postError"
+                  @touch="usernameTouched = true"
+
+                  required
+                ></ui-textbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <ui-textbox
+                  floating-label
                   label="Email"
                   error="This field is required"
                   placeholder="Enter your email"
@@ -90,26 +109,7 @@
               <div class="col-sm-12">
                 <ui-textbox
                   floating-label
-                  autocomplete="off"
-                  error="This field is required"
-                  label="Degree"
-                  placeholder="Enter your degree/field of study"
-
-                  v-model="degree"
-
-                  :invalid="degreeTouched && degree.length === 0"
-                  @touch="degreeTouched = true"
-
-                  required
-                ></ui-textbox>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-sm-12">
-                <ui-textbox
-                  floating-label
-                  label="Address Line 1"
+                  label="Address Line"
                   placeholder="Enter your address"
                   v-model="address1"
                   error="This field is required"
@@ -118,17 +118,6 @@
                   @touch="address1Touched = true"
 
                   required
-                ></ui-textbox>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-sm-12">
-                <ui-textbox
-                  floating-label
-                  label="Address Line 2"
-                  placeholder=""
-                  v-model="address2"
                 ></ui-textbox>
               </div>
             </div>
@@ -225,7 +214,6 @@
             <div class="form-group">
               <div class="col-sm-12">
                 <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size" @click="signup">Sign up</ui-button>
-
               </div>
             </div>
 
@@ -252,6 +240,7 @@
 <script>
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import axios from 'axios'
   export default {
     name: 'full',
     components: {
@@ -260,10 +249,34 @@
     },
     methods: {
       signup () {
-        this.$http.post('/user', '', {
+        axios({
+          method: 'post',
+          url: 'http://g3project.sytes.net/weberclassifieds/users',
           headers: {
-            'url': localStorage.getItem('token')
+            authToken: localStorage.getItem('cert')
+          },
+          data: {
+            userName: this.username,
+            password: this.password,
+            wNumber: this.wnumber,
+            email: this.email,
+            firstName: this.fname,
+            lastName: this.lname,
+            address: {
+              address1: this.address1,
+              city: this.city,
+              state: this.state,
+              zip: this.state
+            },
+            accessLevel: 'STANDARD'
           }
+        }).then(response => {
+          console.log(response)
+          this.$router.push('/')
+        }).catch(error => {
+          console.log(error)
+          this.error = 'Username is already in use'
+          this.postError = true
         })
       }
     },
@@ -279,11 +292,8 @@
         lnameTouched: false,
         email: '',
         emailTouched: false,
-        degree: '',
-        degreeTouched: false,
         address1: '',
         address1Touched: false,
-        address2: '',
         city: '',
         cityTouched: false,
         state: '',
@@ -293,7 +303,12 @@
         password: '',
         passwordTouched: false,
         confirmpassword: '',
-        confirmpasswordTouched: false
+        confirmpasswordTouched: false,
+        username: '',
+        usernameTouched: false,
+        size: 'sm',
+        error: 'This field is required.',
+        postError: false
       }
     }
   }

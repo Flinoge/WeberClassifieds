@@ -95,6 +95,9 @@
           }
         }).then(response => {
           console.log(response)
+          localStorage.setItem('cert', response.data.authenticationToken)
+          localStorage.setItem('refreshCert', response.data.refreshToken)
+          this.$router.push('dashboard')
         }).catch(error => {
           console.log(error)
         })
