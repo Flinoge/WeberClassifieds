@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-toggleable-md" style="position: fixed; z-index: 9999; top: 0; width: 100%; background-color: rgb(73, 38, 101);">
+  <nav class="navbar navbar-toggleable-md" style="position: fixed; z-index: 9999; height: 55px; top: 0; width: 100%; background-color: rgb(73, 38, 101);">
     <button class="navbar-toggler navbar-toggler-right"  style="color:white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
