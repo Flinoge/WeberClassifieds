@@ -9,11 +9,12 @@ import _Dashboard from 'containers/Dashboard'
 // Views
 import Login from 'views/Login'
 import Signup from 'views/Signup'
-import Profile from 'views/Profile'
 import EditProfile from 'views/EditProfile'
 import CreatePost from 'views/CreatePost'
+import Profile from '../views/EditProfile.vue'
 
 // Views - Components
+import Items from '../components/items.vue'
 
 // Views - Pages
 
@@ -29,7 +30,19 @@ export default new Router({
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: _Dashboard
+      component: _Dashboard,
+      children: [
+        {
+          path: '/',
+          name: 'Home',
+          component: Items
+        },
+        {
+          path: '/profile',
+          name: 'Edit Profile',
+          component: Profile
+        }
+      ]
     },
     {
       path: '/',
@@ -40,11 +53,6 @@ export default new Router({
       path: '/signup',
       name: 'Signup',
       component: Signup
-    },
-    {
-      path: '/profile',
-      name: 'Profile',
-      component: Profile
     },
     {
       path: '/editprofile',

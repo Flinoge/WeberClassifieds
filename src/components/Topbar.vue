@@ -3,21 +3,18 @@
     <button class="navbar-toggler navbar-toggler-right"  style="color:white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" style="color:white" href="#">Weber Classifieds</a>
+    <a class="navbar-brand" style="color:white" href="/#/dashboard">Weber Classifieds</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="/#/dashboard">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#/dashboard">Dashboard</a>
+          <a class="nav-link" href="/#/profile">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#/editprofile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/#/">Log Out</a>
+          <a class="nav-link" href="" @click="logout">Log Out</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -30,6 +27,12 @@
 
 <script>
   export default {
-    name: 'main'
+    name: 'main',
+    methods: {
+      logout () {
+        localStorage.setItem('cert', '')
+        localStorage.setItem('refreshCert', '')
+      }
+    }
   }
 </script>
