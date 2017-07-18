@@ -1,67 +1,75 @@
 <template>
   <div class="app">
-    <div class="app-body">
-      <main class="main">
-        <div class="container-fluid">
+      <div class="container-fluid">
 
-          <!--Top Banner-->
-          <div style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
-            <div class="col-sm-12">
-              Login to Weber Classifieds
-            </div>
+        <br>
+        <br>
+        <br>
+
+        <!--Top Banner-->
+        <div
+          style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
+          <div class="col-sm-12">
+            Login to Weber Classifieds
+          </div>
+        </div>
+
+        <!--Main Content-->
+        <div
+          style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
+
+          <div class="col-sm-12">
+            <ui-textbox
+              floating-label
+              label="Username"
+              placeholder=""
+              v-model="username"
+            ></ui-textbox>
           </div>
 
-          <!--Main Content-->
-          <div style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
-
-            <div class="col-sm-12">
-              <ui-textbox
-                floating-label
-                label="Email"
-                placeholder=""
-                v-model="email"
-              ></ui-textbox>
-            </div>
-
-            <div class="col-sm-12">
-              <ui-textbox
-                floating-label
-                label="Password"
-                placeholder=""
-                type="password"
-                v-model="password"
-              ></ui-textbox>
-            </div>
-
-            <br>
-
-            <div class="col-sm-12">
-              <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised :size="size">Log In</ui-button>
-            </div>
-
+          <div class="col-sm-12">
+            <ui-textbox
+              floating-label
+              label="Password"
+              placeholder=""
+              type="password"
+              v-model="password"
+            ></ui-textbox>
           </div>
 
-          <!--Bottom Content-->
-          <div style=" background-color: rgb(73, 38, 101); color: white; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding: 20px; font-size: 20px;">
-            <div class="col-sm-12">
-              Don't have an account? Sign up <a href="/#/signup" style="color: white; text-decoration: underline;">here</a>
-            </div>
-          </div>
+          <br>
 
-          <!--Extra Spacing for bottom of page-->
-          <br>
-          <br>
-          <br>
+
+          <div class="col-sm-12">
+            <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised
+                       size="sm" @click="login">Log In
+            </ui-button>
+          </div>
 
         </div>
-      </main>
-    </div>
+
+        <!--Bottom Content-->
+        <div
+          style=" background-color: rgb(73, 38, 101); color: white; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding: 20px; font-size: 20px;">
+          <div class="col-sm-12">
+            Don't have an account? Sign up <a href="/#/signup"
+                                              style="color: white; text-decoration: underline;">here</a>
+          </div>
+        </div>
+
+        <!--Extra Spacing for bottom of page-->
+        <br>
+        <br>
+        <br>
+
+      </div>
   </div>
 </template>
 
 <script>
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import axios from 'axios'
 
   export default {
     name: 'full',
@@ -69,12 +77,41 @@
       UiTextbox,
       UiButton
     },
-    computed: {
-    },
+    computed: {},
     data () {
       return {
-        email: '',
+        username: '',
         password: ''
+      }
+    },
+    methods: {
+      login () {
+        axios({
+          method: 'get',
+          url: 'http://g3project.sytes.net/weberclassifieds/authentication',
+          auth: {
+            username: this.username,
+            password: this.password
+          }
+        }).then(response => {
+          localStorage.setItem('cert', response.data.authenticationToken)
+          localStorage.setItem('refreshCert', response.data.refreshToken)
+          axios({
+            method: 'get',
+            url: 'http://g3project.sytes.net/weberclassifieds/user?username=' + this.username,
+            headers: {
+              authToken: localStorage.getItem('cert')
+            }
+          }).then(response => {
+            console.log(response)
+            localStorage.setItem('userid', response.data.id)
+            this.$router.push('dashboard')
+          }).catch(error => {
+            console.log(error)
+          })
+        }).catch(error => {
+          console.log(error)
+        })
       }
     }
   }

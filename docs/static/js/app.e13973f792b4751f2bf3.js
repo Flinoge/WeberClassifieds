@@ -3551,6 +3551,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'main'
@@ -6191,7 +6194,45 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('navbar', [_vm._v("\n  Nav Bar\n")])
+  return _c('navbar', {
+    staticStyle: {
+      "background-color": "#808080",
+      "height": "50px"
+    }
+  }, [_c('span', {
+    staticStyle: {
+      "font-size": "30px",
+      "color": "white"
+    }
+  }, [_vm._v("   Weber State Classifieds")]), _vm._v(" "), _c('span', {
+    staticStyle: {
+      "color": "white",
+      "font-size": "20px",
+      "margin-left": "25px"
+    }
+  }, [_c('a', {
+    staticStyle: {
+      "color": "white"
+    },
+    attrs: {
+      "href": "/#/dashboard"
+    }
+  }, [_vm._v("Dashboard")])]), _vm._v(" "), _c('span', {
+    staticStyle: {
+      "float": "right",
+      "color": "white",
+      "font-size": "20px",
+      "margin-right": "10px"
+    }
+  }, [_c('a', {
+    staticStyle: {
+      "color": "white",
+      "margin-top": "15px"
+    },
+    attrs: {
+      "href": "/#/editprofile"
+    }
+  }, [_vm._v("Profile")])]), _vm._v(" "), _c('span')])
 },staticRenderFns: []}
 
 /***/ }),
@@ -6650,4 +6691,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[18]);
-//# sourceMappingURL=app.9d0a994d813cafb1aa84.js.map
+//# sourceMappingURL=app.e13973f792b4751f2bf3.js.map
