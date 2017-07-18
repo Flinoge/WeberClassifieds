@@ -41,6 +41,11 @@ export default new Router({
           path: '/profile',
           name: 'Edit Profile',
           component: Profile
+        },
+        {
+          path: '/createpost',
+          name: 'Create Post',
+          component: CreatePost
         }
       ]
     },
@@ -58,11 +63,6 @@ export default new Router({
       path: '/editprofile',
       name: 'EditProfile',
       component: EditProfile
-    },
-    {
-      path: '/createpost',
-      name: 'CreatePost',
-      component: CreatePost
     }
   ]
 })

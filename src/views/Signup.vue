@@ -110,6 +110,25 @@
             <div class="col-sm-12">
               <ui-textbox
                 floating-label
+                label="Phone"
+                error="This field is required"
+                placeholder="Enter your phone number"
+                type="phone"
+
+                v-model="phone"
+
+                :invalid="phoneTouched && phone.length === 0"
+                @touch="phoneTouched = true"
+
+                required
+              ></ui-textbox>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <ui-textbox
+                floating-label
                 label="Address Line"
                 placeholder="Enter your address"
                 v-model="address1"
@@ -304,6 +323,8 @@
         confirmpasswordTouched: false,
         username: '',
         usernameTouched: false,
+        phone: '',
+        phoneTouched: false,
         size: 'sm',
         error: 'This field is required.',
         postError: false

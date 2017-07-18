@@ -196,7 +196,23 @@
       return {
         citystate: '',
         from: '',
-        to: ''
+        to: '',
+        announcements: '',
+        books: '',
+        computers: '',
+        electronics: '',
+        trade: '',
+        free: '',
+        general: '',
+        hasphotos: '',
+        nophotos: '',
+        forsale: '',
+        insearchof: '',
+        lasthour: '',
+        last24: '',
+        lastweek: '',
+        last30: '',
+        size: 'sm'
       }
     },
     name: 'main'
