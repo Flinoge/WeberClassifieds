@@ -69,7 +69,7 @@
       <div class="form-group">
         <div class="col-sm-12">
           <h6 style="color: grey;">Description</h6>
-          <textarea class="form-group col-sm-12" style="height: 100px; max-height: 200px;"></textarea>
+          <textarea class="form-group col-sm-12" style="height: 100px; max-height: 200px;" v-model="description"></textarea>
         </div>
       </div>
 
@@ -78,7 +78,7 @@
       <div class="form-group">
         <div class="col-sm-12">
           <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised
-                     :size="size">Post listing
+                     :size="size" @click="postListing">Post listing
           </ui-button>
         </div>
       </div>
@@ -91,6 +91,7 @@
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
   import UiSelect from 'keen-ui/src/UiSelect.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import axios from 'axios'
 
   export default {
     name: 'full',
@@ -100,27 +101,35 @@
       UiButton
     },
     computed: {},
-    methods: {},
+    methods: {
+      postListing () {
+        axios({
+          method: 'post',
+          url: 'http://g3project.sytes.net/weberclassifieds/listing',
+          headers: {
+            authToken: localStorage.getItem('cert')
+          },
+          data: {
+            title: this.title,
+            message: this.description,
+            userid: localStorage.getItem('userid')
+          }
+        }).then(response => {
+          // On success of list posting
+        }).catch(error => {
+          console.log(error)
+        })
+      }
+    },
     data () {
       return {
         title: '',
         price: '',
-        city: '',
         category: '',
-        state: '',
-        zipcode: '',
-        name: '',
-        phone: '',
-        email: '',
         titleTouched: false,
         priceTouched: false,
-        cityTouched: false,
         categoryTouched: false,
-        stateTouched: false,
-        zipcodeTouched: false,
-        nameTouched: false,
-        phoneTouched: false,
-        emailTouched: false,
+        description: '',
         size: 'sm'
       }
     }
