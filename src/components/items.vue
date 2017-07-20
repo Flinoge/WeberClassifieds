@@ -18,7 +18,7 @@
     <table id="itemTable" class="table table-hover table-striped m-0">
       <thead>
       <tr>
-        <th>Item Type</th>
+        <th>Picture</th>
         <th>Item</th>
         <th @click="sortPrice" class="cursor-pointer">Price <i class="fa fa-sort" aria-hidden="true"></i></th>
         <th>Location</th>
@@ -28,21 +28,25 @@
       <tr v-for="(item, index) in pages[currentPage]" @click="openModal('modal' + index)">
         <td>
           <ui-fab
-            :color="iconColor(item.type)"
+            color="primary"
             tooltip-position="top center"
-            :tooltip="item.type"
-          ></ui-fab>
+            tooltip="No Picture to Show"
+            size="sm"
+          ><i class="fa fa-picture-o" aria-hidden="true"></i></ui-fab>
         </td>
-        <td>{{ item.name }}</td>
+        <td>
+          <div class="col-12"><h3>{{ item.title }}</h3></div>
+          <div class="col-12">{{ item.messageSummary }}...</div>
+        </td>
         <td>{{ item.price }}</td>
-        <td>{{ item.location }}</td>
+        <td>{{ item.user.address.city }}</td>
       </tr>
       </tbody>
     </table>
     <ui-modal ref="createpost" title="Create a Listing">
       <create-post></create-post>
     </ui-modal>
-    <ui-modal v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.name">
+    <ui-modal size="large" v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.title">
       {{ item.price }}
     </ui-modal>
   </div>
@@ -118,28 +122,27 @@
           pages[currentPage].push(this.items[i])
         }
         return pages
-      },
-      items () {
-        let APICall = []
-        axios({
-          method: 'get',
-          url: 'http://g3project.sytes.net/weberclassifieds/listings',
-          headers: {
-            authToken: localStorage.getItem('cert')
-          }
-        }).then(response => {
-          APICall = response.data
-        }).catch(error => {
-          console.log(error)
-        })
-        return APICall
       }
+    },
+    mounted () {
+      axios({
+        method: 'get',
+        url: 'http://g3project.sytes.net/weberclassifieds/listings',
+        headers: {
+          authToken: localStorage.getItem('cert')
+        }
+      }).then(response => {
+        this.items = response.data
+      }).catch(error => {
+        console.log(error)
+      })
     },
     data () {
       return {
         currentPage: 0,
         perPage: 10,
-        priceSort: true
+        priceSort: true,
+        items: []
       }
     }
   }

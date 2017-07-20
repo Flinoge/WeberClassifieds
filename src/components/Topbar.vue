@@ -9,7 +9,10 @@
       <ul class="navbar-nav mr-auto">
 
         <li class="nav-item">
-          <a class="nav-link" href="/#/EditProfile">Profile</a>
+          <a class="nav-link" href="/#/dashboard">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/#/profile">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/#/">Logout</a>

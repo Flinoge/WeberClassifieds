@@ -60,7 +60,7 @@
             label="Listing Type"
             placeholder="Select one"
             :options="['For Sale','In Search Of']"
-            v-model="category"
+            v-model="listtype"
           ></ui-select>
         </div>
       </div>
@@ -111,8 +111,8 @@
           },
           data: {
             title: this.title,
-            message: this.description,
-            userid: localStorage.getItem('userid')
+            messageSummary: this.description,
+            user: localStorage.getItem('userid')
           }
         }).then(response => {
           // On success of list posting
@@ -130,7 +130,8 @@
         priceTouched: false,
         categoryTouched: false,
         description: '',
-        size: 'sm'
+        size: 'sm',
+        listtype: ''
       }
     }
   }
