@@ -102,7 +102,7 @@
               authToken: localStorage.getItem('cert')
             }
           }).then(response => {
-            localStorage.setItem('userid', response.data[0])
+            localStorage.setItem('userid', response.data[0].id)
             this.$router.push('dashboard')
           }).catch(error => {
             console.log(error)
@@ -118,7 +118,9 @@
 
 <style scoped>
   #body {
-    position: fixed;
+    position: fixed;,
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
 

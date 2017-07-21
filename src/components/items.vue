@@ -39,7 +39,7 @@
           <div class="col-12">{{ item.messageSummary }}...</div>
         </td>
         <td>{{ item.price }}</td>
-        <td>{{ item.user.address.city }}</td>
+        <td>{{ item.userRepresentation.address.city }}</td>
       </tr>
       </tbody>
     </table>

@@ -105,14 +105,18 @@
       postListing () {
         axios({
           method: 'post',
-          url: 'http://g3project.sytes.net/weberclassifieds/listing',
+          url: 'http://g3project.sytes.net/weberclassifieds/listings',
           headers: {
             authToken: localStorage.getItem('cert')
           },
           data: {
             title: this.title,
-            messageSummary: this.description,
-            user: localStorage.getItem('userid')
+            message: this.description,
+            userRepresentation: {id: localStorage.getItem('userid')},
+            category: this.category,
+            type: this.listtype,
+            price: this.price,
+            attachmentIds: [1]
           }
         }).then(response => {
           // On success of list posting
