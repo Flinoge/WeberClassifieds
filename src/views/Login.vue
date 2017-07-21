@@ -2,10 +2,12 @@
   <div class="app">
       <div class="container-fluid">
 
-        <br>
-        <br>
-        <br>
+        <div style="opacity: 0.5; position: fixed; top: 21%; left: 10%; background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Weber_State_University_logo.svg/1280px-Weber_State_University_logo.svg.png); background-size: 80% 240px; background-repeat: no-repeat; height: 1000px; width: 100%;">
 
+        </div>
+        <br>
+        <br>
+        <br>
         <!--Top Banner-->
         <div
           style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
