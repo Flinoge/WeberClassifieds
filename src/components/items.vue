@@ -7,7 +7,8 @@
       </div>
       <div class="col-6">
         <ul class="pagination">
-          <li class="cursor-pointer" :id="'page' + index" v-for="(page, index) in numPages" @click="switchPage(index)" v-bind:class="{ active: currentPage===index }"><a>{{index + 1}}</a></li>
+          <li class="cursor-pointer" :id="'page' + index" v-for="(page, index) in numPages" @click="switchPage(index)"
+              v-bind:class="{ active: currentPage===index }"><a>{{index + 1}}</a></li>
         </ul>
       </div>
       <div class="col-3">
@@ -17,7 +18,7 @@
     <table id="itemTable" class="table table-hover table-striped m-0">
       <thead>
       <tr>
-        <th>Item Type</th>
+        <th>Picture</th>
         <th>Item</th>
         <th @click="sortPrice" class="cursor-pointer">Price <i class="fa fa-sort" aria-hidden="true"></i></th>
         <th>Location</th>
@@ -27,21 +28,25 @@
       <tr v-for="(item, index) in pages[currentPage]" @click="openModal('modal' + index)">
         <td>
           <ui-fab
-          :color="iconColor(item.type)"
-          tooltip-position="top center"
-          :tooltip="item.type"
-          ></ui-fab>
+            color="primary"
+            tooltip-position="top center"
+            tooltip="No Picture to Show"
+            size="sm"
+          ><i class="fa fa-picture-o" aria-hidden="true"></i></ui-fab>
         </td>
-        <td>{{ item.name }}</td>
+        <td>
+          <div class="col-12"><h3>{{ item.title }}</h3></div>
+          <div class="col-12">{{ item.messageSummary }}...</div>
+        </td>
         <td>{{ item.price }}</td>
-        <td>{{ item.location }}</td>
+        <td>{{ item.user.address.city }}</td>
       </tr>
       </tbody>
     </table>
     <ui-modal ref="createpost" title="Create a Listing">
       <create-post></create-post>
     </ui-modal>
-    <ui-modal v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.name">
+    <ui-modal size="large" v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.title">
       {{ item.price }}
     </ui-modal>
   </div>
@@ -53,6 +58,7 @@
   import UiFab from 'keen-ui/src/UiFab.vue'
   import CreatePost from '../views/CreatePost.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import axios from 'axios'
 
   export default {
     name: 'Items',
@@ -118,157 +124,25 @@
         return pages
       }
     },
+    mounted () {
+      axios({
+        method: 'get',
+        url: 'http://g3project.sytes.net/weberclassifieds/listings',
+        headers: {
+          authToken: localStorage.getItem('cert')
+        }
+      }).then(response => {
+        this.items = response.data
+      }).catch(error => {
+        console.log(error)
+      })
+    },
     data () {
       return {
-        items: [
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          },
-          {
-            name: 'Brand New Bike',
-            price: 110,
-            location: 'Ogden',
-            type: 'For Sale',
-            category: 'Auto Parts and Accessories',
-            author: 'Flinoge',
-            itemDescription: 'Almost new, barely used, selling for cheap because I have to move away.'
-          }
-        ],
         currentPage: 0,
         perPage: 10,
-        priceSort: true
+        priceSort: true,
+        items: []
       }
     }
   }

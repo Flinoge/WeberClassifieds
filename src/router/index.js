@@ -9,7 +9,6 @@ import _Dashboard from 'containers/Dashboard'
 // Views
 import Login from 'views/Login'
 import Signup from 'views/Signup'
-import EditProfile from 'views/EditProfile'
 import CreatePost from 'views/CreatePost'
 import Profile from '../views/EditProfile.vue'
 
@@ -58,11 +57,6 @@ export default new Router({
       path: '/signup',
       name: 'Signup',
       component: Signup
-    },
-    {
-      path: '/editprofile',
-      name: 'EditProfile',
-      component: EditProfile
     }
   ]
 })

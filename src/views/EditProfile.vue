@@ -6,7 +6,7 @@
       <div
         style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
         <div class="col-sm-12">
-          Edit your Weber Classifieds Profile
+          Your Weber Classifieds Profile
         </div>
       </div>
 
@@ -19,7 +19,7 @@
             <ui-textbox
               floating-label
               label="W#"
-              placeholder="Enter your W#"
+              placeholder="Edit your W#"
               error="This field is required"
               v-model="wnumber"
 
@@ -36,7 +36,7 @@
             <ui-textbox
               floating-label
               label="First Name"
-              placeholder="Enter your first name"
+              placeholder="Edit your first name"
               error="This field is required"
               v-model="fname"
 
@@ -55,7 +55,7 @@
               autocomplete="off"
               error="This field is required"
               label="Last Name"
-              placeholder="Enter your last name"
+              placeholder="Edit your last name"
 
               v-model="lname"
 
@@ -71,9 +71,28 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
+              autocomplete="off"
+              :error="error"
+              label="Username"
+              placeholder="Edit your username"
+
+              v-model="username"
+
+              :invalid="(usernameTouched && username.length === 0) || postError"
+              @touch="usernameTouched = true"
+
+              required
+            ></ui-textbox>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-12">
+            <ui-textbox
+              floating-label
               label="Email"
               error="This field is required"
-              placeholder="Enter your email"
+              placeholder="Edit your email"
               type="email"
 
               v-model="email"
@@ -90,15 +109,15 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
-              autocomplete="off"
+              label="Phone"
               error="This field is required"
-              label="Degree"
-              placeholder="Enter your degree/field of study"
+              placeholder="Edit your phone number"
+              type="phone"
 
-              v-model="degree"
+              v-model="phone"
 
-              :invalid="degreeTouched && degree.length === 0"
-              @touch="degreeTouched = true"
+              :invalid="phoneTouched && phone.length === 0"
+              @touch="phoneTouched = true"
 
               required
             ></ui-textbox>
@@ -109,8 +128,8 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
-              label="Address Line 1"
-              placeholder="Enter your address"
+              label="Address Line"
+              placeholder="Edit your address"
               v-model="address1"
               error="This field is required"
 
@@ -126,19 +145,8 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
-              label="Address Line 2"
-              placeholder=""
-              v-model="address2"
-            ></ui-textbox>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-12">
-            <ui-textbox
-              floating-label
               label="City"
-              placeholder="Enter your city"
+              placeholder="Edit your city"
               v-model="city"
               error="This field is required"
 
@@ -155,7 +163,7 @@
             <ui-textbox
               floating-label
               label="State"
-              placeholder="Enter your state"
+              placeholder="Edit your state"
               v-model="state"
               error="This field is required"
 
@@ -172,7 +180,7 @@
             <ui-textbox
               floating-label
               label="Zip"
-              placeholder=""
+              placeholder="Edit your zip"
               v-model="zip"
               error="This field is required"
 
@@ -189,7 +197,7 @@
             <ui-textbox
               floating-label
               label="Password"
-              placeholder=""
+              placeholder="Change your password"
               type="password"
               v-model="password"
               error="Password must be greater than 8 characters"
@@ -207,7 +215,7 @@
             <ui-textbox
               floating-label
               label="Confirm Password"
-              placeholder=""
+              placeholder="Confirm your password"
               type="password"
               v-model="confirmpassword"
               error="Passwords must match"
@@ -225,7 +233,7 @@
         <div class="form-group">
           <div class="col-sm-12">
             <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised
-                       :size="size">Sign up
+                       :size="size">Save Changes
             </ui-button>
 
           </div>
@@ -269,6 +277,8 @@
         fnameTouched: false,
         lname: '',
         lnameTouched: false,
+        username: '',
+        usernameTouched: false,
         email: '',
         emailTouched: false,
         degree: '',

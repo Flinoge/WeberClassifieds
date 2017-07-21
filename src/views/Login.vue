@@ -98,7 +98,18 @@
         }).then(response => {
           localStorage.setItem('cert', response.data.authenticationToken)
           localStorage.setItem('refreshCert', response.data.refreshToken)
-          this.$router.push('dashboard')
+          axios({
+            method: 'get',
+            url: 'http://g3project.sytes.net/weberclassifieds/users?username=' + this.username,
+            headers: {
+              authToken: localStorage.getItem('cert')
+            }
+          }).then(response => {
+            localStorage.setItem('userid', response.data[0])
+            this.$router.push('dashboard')
+          }).catch(error => {
+            console.log(error)
+          })
         }).catch(error => {
           console.log(error)
         })
