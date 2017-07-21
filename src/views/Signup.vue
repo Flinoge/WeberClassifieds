@@ -1,7 +1,7 @@
 <template>
   <div class="app">
       <div class="container-fluid">
-
+        <img id="body" src="../../static/assets/overview.jpg" />
         <br>
         <br>
         <br>
@@ -333,3 +333,14 @@
     }
   }
 </script>
+
+<style scoped>
+  #body {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    opacity: 0.2;
+
+  }
+</style>

@@ -1,10 +1,7 @@
 <template>
   <div class="app">
       <div class="container-fluid">
-
-        <div style="opacity: 0.5; position: fixed; top: 21%; left: 10%; background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Weber_State_University_logo.svg/1280px-Weber_State_University_logo.svg.png); background-size: 80% 240px; background-repeat: no-repeat; height: 1000px; width: 100%;">
-
-        </div>
+        <img id="body" src="../../static/assets/overview.jpg" />
         <br>
         <br>
         <br>
@@ -18,7 +15,7 @@
 
         <!--Main Content-->
         <div
-          style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
+          style="border-color: rgb(73, 38, 101); background-color: white; opacity: 1; border-style: solid; border-width: 5px;  padding: 20px;">
 
           <div class="col-sm-12">
             <ui-textbox
@@ -117,3 +114,16 @@
     }
   }
 </script>
+
+
+<style scoped>
+  #body {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    opacity: 0.2;
+
+    z-index: 0;
+  }
+</style>
