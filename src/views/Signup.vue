@@ -1,10 +1,11 @@
 <template>
   <div class="app">
       <div class="container-fluid">
+        <img id="body" src="../../static/assets/overview.jpg" />
+        <br>
+        <br>
+        <br>
 
-        <br>
-        <br>
-        <br>
         <!--Top Banner-->
         <div style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
           <div class="col-sm-12">
@@ -332,3 +333,16 @@
     }
   }
 </script>
+
+<style scoped>
+  #body {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    opacity: 0.2;
+
+  }
+</style>

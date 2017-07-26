@@ -1,11 +1,10 @@
 <template>
   <div class="app">
       <div class="container-fluid">
-
+        <img id="body" src="../../static/assets/overview.jpg" />
         <br>
         <br>
         <br>
-
         <!--Top Banner-->
         <div
           style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
@@ -16,7 +15,7 @@
 
         <!--Main Content-->
         <div
-          style="border-color: rgb(73, 38, 101); border-style: solid; border-width: 5px; background-color: white;  padding: 20px;">
+          style="border-color: rgb(73, 38, 101); background-color: white; opacity: 1; border-style: solid; border-width: 5px;  padding: 20px;">
 
           <div class="col-sm-12">
             <ui-textbox
@@ -116,3 +115,18 @@
     }
   }
 </script>
+
+
+<style scoped>
+  #body {
+    position: fixed;,
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    opacity: 0.2;
+
+    z-index: 0;
+  }
+</style>
