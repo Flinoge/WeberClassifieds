@@ -103,7 +103,8 @@
               authToken: localStorage.getItem('cert')
             }
           }).then(response => {
-            localStorage.setItem('userid', response.data[0])
+            console.log(response)
+            localStorage.setItem('userid', response.data[0].id)
             this.$router.push('dashboard')
           }).catch(error => {
             console.log(error)

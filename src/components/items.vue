@@ -47,7 +47,7 @@
       <create-post></create-post>
     </ui-modal>
     <ui-modal size="large" v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.title">
-      {{ item.price }}
+      <item :itemID="item.id"></item>
     </ui-modal>
   </div>
 </template>
@@ -58,6 +58,7 @@
   import UiFab from 'keen-ui/src/UiFab.vue'
   import CreatePost from '../views/CreatePost.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import Item from '../components/item.vue'
   import axios from 'axios'
 
   export default {
@@ -67,6 +68,7 @@
       UiSelect,
       UiModal,
       UiFab,
+      Item,
       CreatePost
     },
     methods: {
