@@ -7451,21 +7451,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('a', {
     staticClass: "nav-link",
     attrs: {
-      "href": "/#/dashboard"
+      "href": "#/dashboard"
     }
   }, [_vm._v("Home")])]), _vm._v(" "), _c('li', {
     staticClass: "nav-item"
   }, [_c('a', {
     staticClass: "nav-link",
     attrs: {
-      "href": "/#/profile"
+      "href": "#/profile"
     }
   }, [_vm._v("Profile")])]), _vm._v(" "), _c('li', {
     staticClass: "nav-item"
   }, [_c('a', {
     staticClass: "nav-link",
     attrs: {
-      "href": "/#/"
+      "href": "#/"
     }
   }, [_vm._v("Logout")])])]), _vm._v(" "), _c('form', {
     staticClass: "form-inline my-2 my-lg-0"
@@ -7954,4 +7954,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[47]);
-//# sourceMappingURL=app.a5b5a01cabb7a596d328.js.map
+//# sourceMappingURL=app.7b98ebe049391c9454d5.js.map
