@@ -7437,7 +7437,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "color": "white"
     },
     attrs: {
-      "href": "/#/dashboard"
+      "href": "#/dashboard"
     }
   }, [_vm._v("Weber Classifieds")]), _vm._v(" "), _c('div', {
     staticClass: "collapse navbar-collapse",
@@ -7954,4 +7954,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[47]);
-//# sourceMappingURL=app.7b98ebe049391c9454d5.js.map
+//# sourceMappingURL=app.a74d4748798bdbf7cf2a.js.map

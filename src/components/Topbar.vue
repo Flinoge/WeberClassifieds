@@ -3,7 +3,7 @@
     <button class="navbar-toggler navbar-toggler-right" style="color:white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" style="color:white" href="/#/dashboard">Weber Classifieds</a>
+    <a class="navbar-brand" style="color:white" href="#/dashboard">Weber Classifieds</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
