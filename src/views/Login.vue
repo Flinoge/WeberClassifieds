@@ -20,7 +20,7 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
-              label="Username"
+              label="Testing"
               placeholder=""
               v-model="username"
             ></ui-textbox>
