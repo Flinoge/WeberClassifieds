@@ -1,12 +1,14 @@
 <template>
   <div class="item">
-    <div>{{ itemInfo.category }}</div>
-    <div>{{ itemInfo.id }}</div>
-    <div>{{ itemInfo.message }}</div>
-    <div>{{ itemInfo.price }}</div>
-    <div>{{ itemInfo.title }}</div>
-    <div>{{ itemInfo.type }}</div>
-    <div>{{ itemInfo.user }}</div>
+    <div><b>Title:</b> {{ itemInfo.title }}</div>
+    <div><b>Category:</b> {{ itemInfo.category }}</div>
+    <div><b>Price:</b> {{ itemInfo.price }}</div>
+    <div><b>Listing Type:</b> {{ itemInfo.type }}</div>
+    <div><b>Message:</b> {{ itemInfo.message }}</div>
+    <br>
+    <b>Seller Contact Info</b>
+    <div>Email: <a href="mailto:">{{ itemInfo.user.email }}</a></div>
+    <div>Phone Number: {{ itemInfo.user.phone }}</div>
   </div>
 </template>
 
