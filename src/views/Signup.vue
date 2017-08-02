@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-      <div class="container-fluid">
+      <div class="col-sm-6" style="margin-left: 25%; margin-right: 25%;">
         <img id="body" src="../../static/assets/overview.jpg" />
         <br>
         <br>
@@ -22,11 +22,14 @@
                 floating-label
                 label="W#"
                 placeholder="Enter your W#"
-                error="This field is required"
                 v-model="wnumber"
 
-                :invalid="wnumberTouched && wnumber.length === 0"
                 @touch="wnumberTouched = true"
+
+                error="Must be 8 numbers long"
+
+                :maxlength="8"
+                :invalid="wnumberTouched && wnumber.length != 8"
 
                 required
               ></ui-textbox>
@@ -93,13 +96,13 @@
               <ui-textbox
                 floating-label
                 label="Email"
-                error="This field is required"
+                error="Enter a valid email address"
                 placeholder="Enter your email"
                 type="email"
 
                 v-model="email"
 
-                :invalid="emailTouched && email.length === 0"
+                :invalid="emailTouched && !(email.includes('@'))"
                 @touch="emailTouched = true"
 
                 required
@@ -112,14 +115,16 @@
               <ui-textbox
                 floating-label
                 label="Phone"
-                error="This field is required"
+                error="Enter a 10 digit phone number"
                 placeholder="Enter your phone number"
                 type="phone"
 
                 v-model="phone"
 
-                :invalid="phoneTouched && phone.length === 0"
                 @touch="phoneTouched = true"
+
+                :maxlength="10"
+                :invalid="phoneTouched && phone.length != 10"
 
                 required
               ></ui-textbox>
@@ -184,9 +189,11 @@
                 label="Zip"
                 placeholder=""
                 v-model="zip"
-                error="This field is required"
+                error="Enter a 5 digit zipcode"
 
-                :invalid="zipTouched && zip.length === 0"
+                :maxlength="5"
+                :invalid="zipTouched && zip.length != 5"
+
                 @touch="zipTouched = true"
 
                 required
