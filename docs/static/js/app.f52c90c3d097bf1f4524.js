@@ -4561,7 +4561,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             authToken: localStorage.getItem('cert')
           }
         }).then(response => {
-          console.log(response);
           localStorage.setItem('userid', response.data[0].id);
           this.$router.push('dashboard');
         }).catch(error => {
@@ -4586,6 +4585,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_keen_ui_src_UiButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_keen_ui_src_UiButton_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6715,7 +6721,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "app"
   }, [_c('div', {
-    staticClass: "container-fluid"
+    staticClass: "col-sm-6",
+    staticStyle: {
+      "margin-left": "25%"
+    }
   }, [_c('img', {
     attrs: {
       "id": "body",
@@ -6788,7 +6797,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "font-size": "20px"
     }
   }, [_c('div', {
-    staticClass: "col-sm-12"
+    staticClass: "col-sm-6"
   }, [_vm._v("\n          Login to Weber Classifieds\n        ")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -6912,7 +6921,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "col-12"
     }, [_c('h3', [_vm._v(_vm._s(item.title))])]), _vm._v(" "), _c('div', {
       staticClass: "col-12"
-    }, [_vm._v(_vm._s(item.messageSummary) + "...")])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(item.price))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(item.userRepresentation.address.city))])])
+    }, [_vm._v(_vm._s(item.messageSummary) + "...")])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(item.price))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(item.user.address.city))])])
   }))]), _vm._v(" "), _c('ui-modal', {
     ref: "createpost",
     attrs: {
@@ -7028,7 +7037,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "app"
   }, [_c('div', {
-    staticClass: "container-fluid"
+    staticClass: "col-sm-6",
+    staticStyle: {
+      "margin-left": "25%",
+      "margin-right": "25%"
+    }
   }, [_c('img', {
     attrs: {
       "id": "body",
@@ -7051,8 +7064,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "floating-label": "",
       "label": "W#",
       "placeholder": "Enter your W#",
-      "error": "This field is required",
-      "invalid": _vm.wnumberTouched && _vm.wnumber.length === 0,
+      "error": "Must be 8 numbers long",
+      "maxlength": 8,
+      "invalid": _vm.wnumberTouched && _vm.wnumber.length != 8,
       "required": ""
     },
     on: {
@@ -7152,10 +7166,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "floating-label": "",
       "label": "Email",
-      "error": "This field is required",
+      "error": "Enter a valid email address",
       "placeholder": "Enter your email",
       "type": "email",
-      "invalid": _vm.emailTouched && _vm.email.length === 0,
+      "invalid": _vm.emailTouched && !(_vm.email.includes('@')),
       "required": ""
     },
     on: {
@@ -7178,10 +7192,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "floating-label": "",
       "label": "Phone",
-      "error": "This field is required",
+      "error": "Enter a 10 digit phone number",
       "placeholder": "Enter your phone number",
       "type": "phone",
-      "invalid": _vm.phoneTouched && _vm.phone.length === 0,
+      "maxlength": 10,
+      "invalid": _vm.phoneTouched && _vm.phone.length != 10,
       "required": ""
     },
     on: {
@@ -7280,8 +7295,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "floating-label": "",
       "label": "Zip",
       "placeholder": "",
-      "error": "This field is required",
-      "invalid": _vm.zipTouched && _vm.zip.length === 0,
+      "error": "Enter a 5 digit zipcode",
+      "maxlength": 5,
+      "invalid": _vm.zipTouched && _vm.zip.length != 5,
       "required": ""
     },
     on: {
@@ -7954,4 +7970,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[47]);
-//# sourceMappingURL=app.a74d4748798bdbf7cf2a.js.map
+//# sourceMappingURL=app.f52c90c3d097bf1f4524.js.map
