@@ -3,19 +3,19 @@
     <button class="navbar-toggler navbar-toggler-right" style="color:white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" style="color:white" href="/#/dashboard">Weber Classifieds</a>
+    <a class="navbar-brand" style="color:white" href="#/dashboard">Weber Classifieds</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
 
         <li class="nav-item">
-          <a class="nav-link" href="/#/dashboard">Home</a>
+          <a class="nav-link" href="#/dashboard">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#/profile">Profile</a>
+          <a class="nav-link" href="#/profile">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#/">Logout</a>
+          <a class="nav-link" href="#/">Logout</a>
         </li>
 
       </ul>

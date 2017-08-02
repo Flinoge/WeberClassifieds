@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-      <div class="container-fluid">
+      <div class="col-sm-6" style="margin-left: 25%;">
         <img id="body" src="../../static/assets/overview.jpg" />
         <br>
         <br>
@@ -8,7 +8,7 @@
         <!--Top Banner-->
         <div
           style="background-color: rgb(73, 38, 101); color: white; border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 20px; font-size: 20px;">
-          <div class="col-sm-12">
+          <div class="col-sm-6">
             Login to Weber Classifieds
           </div>
         </div>
