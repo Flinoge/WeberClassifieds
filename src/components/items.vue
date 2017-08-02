@@ -129,7 +129,7 @@
     mounted () {
       axios({
         method: 'get',
-        url: 'http://g3project.sytes.net/weberclassifieds/listings',
+        url: 'https://g3project.sytes.net/weberclassifieds/listings',
         headers: {
           authToken: localStorage.getItem('cert')
         }

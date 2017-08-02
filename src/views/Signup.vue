@@ -277,7 +277,7 @@
       signup () {
         axios({
           method: 'post',
-          url: 'http://g3project.sytes.net/weberclassifieds/users',
+          url: 'https://g3project.sytes.net/weberclassifieds/users',
           headers: {
             UserCreateToken: '3D!@Aa@Ltvz^XdC0t5vp9F$qd@dn@V#ExVu#soxY%fp08D1eCC'
           },

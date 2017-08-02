@@ -31,7 +31,7 @@
       let window = this
       axios({
         method: 'get',
-        url: 'http://g3project.sytes.net/weberclassifieds/listings/' + this.itemID,
+        url: 'https://g3project.sytes.net/weberclassifieds/listings/' + this.itemID,
         headers: {
           authToken: localStorage.getItem('cert')
         }

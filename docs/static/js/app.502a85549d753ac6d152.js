@@ -3741,7 +3741,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     let window = this;
     __WEBPACK_IMPORTED_MODULE_0_axios___default()({
       method: 'get',
-      url: 'http://g3project.sytes.net/weberclassifieds/listings/' + this.itemID,
+      url: 'https://g3project.sytes.net/weberclassifieds/listings/' + this.itemID,
       headers: {
         authToken: localStorage.getItem('cert')
       }
@@ -3910,7 +3910,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   mounted() {
     __WEBPACK_IMPORTED_MODULE_6_axios___default()({
       method: 'get',
-      url: 'http://g3project.sytes.net/weberclassifieds/listings',
+      url: 'https://g3project.sytes.net/weberclassifieds/listings',
       headers: {
         authToken: localStorage.getItem('cert')
       }
@@ -4099,7 +4099,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     postListing() {
       __WEBPACK_IMPORTED_MODULE_3_axios___default()({
         method: 'post',
-        url: 'http://g3project.sytes.net/weberclassifieds/listings',
+        url: 'https://g3project.sytes.net/weberclassifieds/listings',
         headers: {
           authToken: localStorage.getItem('cert')
         },
@@ -4556,7 +4556,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         localStorage.setItem('refreshCert', response.data.refreshToken);
         __WEBPACK_IMPORTED_MODULE_2_axios___default()({
           method: 'get',
-          url: 'http://g3project.sytes.net/weberclassifieds/users?username=' + this.username,
+          url: 'https://g3project.sytes.net/weberclassifieds/users?username=' + this.username,
           headers: {
             authToken: localStorage.getItem('cert')
           }
@@ -4864,7 +4864,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     signup() {
       __WEBPACK_IMPORTED_MODULE_2_axios___default()({
         method: 'post',
-        url: 'http://g3project.sytes.net/weberclassifieds/users',
+        url: 'https://g3project.sytes.net/weberclassifieds/users',
         headers: {
           UserCreateToken: '3D!@Aa@Ltvz^XdC0t5vp9F$qd@dn@V#ExVu#soxY%fp08D1eCC'
         },
@@ -7970,4 +7970,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[47]);
-//# sourceMappingURL=app.f52c90c3d097bf1f4524.js.map
+//# sourceMappingURL=app.502a85549d753ac6d152.js.map

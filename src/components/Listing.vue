@@ -20,7 +20,7 @@
         let APICall = []
         axios({
           method: 'get',
-          url: 'http://g3project.sytes.net/weberclassifieds/listing/' + this.listID,
+          url: 'https://g3project.sytes.net/weberclassifieds/listing/' + this.listID,
           headers: {
             authToken: localStorage.getItem('cert')
           }
