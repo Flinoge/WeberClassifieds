@@ -1,6 +1,8 @@
 <template>
   <div class="app">
-      <div class="col-sm-6" style="margin-left: 25%; margin-right: 25%;">
+    <div class="row">
+      <div class="col-sm-3"></div>
+        <div class="col-sm-6">
         <img id="body" src="../../static/assets/overview.jpg" />
         <br>
         <br>
@@ -260,6 +262,8 @@
         <br>
 
       </div>
+      <div class="col-sm-3"></div>
+    </div>
   </div>
 </template>
 
