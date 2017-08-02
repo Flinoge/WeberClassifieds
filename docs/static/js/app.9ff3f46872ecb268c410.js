@@ -3723,6 +3723,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -4524,6 +4526,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -4585,6 +4591,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_keen_ui_src_UiButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_keen_ui_src_UiButton_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+//
+//
+//
+//
 //
 //
 //
@@ -6721,10 +6731,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "app"
   }, [_c('div', {
-    staticClass: "col-sm-6",
-    staticStyle: {
-      "margin-left": "25%"
-    }
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-sm-3"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-6"
   }, [_c('img', {
     attrs: {
       "id": "body",
@@ -6785,7 +6796,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.login
     }
-  }, [_vm._v("Log In\n          ")])], 1)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('br')])])
+  }, [_vm._v("Log In\n          ")])], 1)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('br')]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-3"
+  })])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticStyle: {
@@ -6829,7 +6842,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "item"
-  }, [_c('div', [_vm._v(_vm._s(_vm.itemInfo.category))]), _vm._v(" "), _c('div', [_vm._v(_vm._s(_vm.itemInfo.id))]), _vm._v(" "), _c('div', [_vm._v(_vm._s(_vm.itemInfo.message))]), _vm._v(" "), _c('div', [_vm._v(_vm._s(_vm.itemInfo.price))]), _vm._v(" "), _c('div', [_vm._v(_vm._s(_vm.itemInfo.title))]), _vm._v(" "), _c('div', [_vm._v(_vm._s(_vm.itemInfo.type))]), _vm._v(" "), _c('div', [_vm._v(_vm._s(_vm.itemInfo.user))])])
+  }, [_c('div', [_c('b', [_vm._v("Title:")]), _vm._v(" " + _vm._s(_vm.itemInfo.title))]), _vm._v(" "), _c('div', [_c('b', [_vm._v("Category:")]), _vm._v(" " + _vm._s(_vm.itemInfo.category))]), _vm._v(" "), _c('div', [_c('b', [_vm._v("Price:")]), _vm._v(" " + _vm._s(_vm.itemInfo.price))]), _vm._v(" "), _c('div', [_c('b', [_vm._v("Listing Type:")]), _vm._v(" " + _vm._s(_vm.itemInfo.type))]), _vm._v(" "), _c('div', [_c('b', [_vm._v("Message:")]), _vm._v(" " + _vm._s(_vm.itemInfo.message))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('b', [_vm._v("Seller Contact Info")]), _vm._v(" "), _c('div', [_vm._v("Email: "), _c('a', {
+    attrs: {
+      "href": "mailto:"
+    }
+  }, [_vm._v(_vm._s(_vm.itemInfo.user.email))])]), _vm._v(" "), _c('div', [_vm._v("Phone Number: " + _vm._s(_vm.itemInfo.user.phone))])])
 },staticRenderFns: []}
 
 /***/ }),
@@ -7037,11 +7054,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "app"
   }, [_c('div', {
-    staticClass: "col-sm-6",
-    staticStyle: {
-      "margin-left": "25%",
-      "margin-right": "25%"
-    }
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-sm-3"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-6"
   }, [_c('img', {
     attrs: {
       "id": "body",
@@ -7381,7 +7398,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.signup
     }
-  }, [_vm._v("Sign up")])], 1)])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('br')])])
+  }, [_vm._v("Sign up")])], 1)])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('br')]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-3"
+  })])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticStyle: {
@@ -7970,4 +7989,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[47]);
-//# sourceMappingURL=app.502a85549d753ac6d152.js.map
+//# sourceMappingURL=app.9ff3f46872ecb268c410.js.map
