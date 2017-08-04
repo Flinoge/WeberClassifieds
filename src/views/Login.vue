@@ -91,7 +91,7 @@
       login () {
         axios({
           method: 'get',
-          url: 'http://g3project.sytes.net/weberclassifieds/authentication',
+          url: 'https://g3project.sytes.net/weberclassifieds/authentication',
           auth: {
             username: this.username,
             password: this.password
