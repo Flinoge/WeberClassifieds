@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ category }}
     <div class="my-1 row">
       <div class="col-3">
         <ui-select :options="['10','25','50']" v-model="perPage" label="Items per Page" placeholder="10">
