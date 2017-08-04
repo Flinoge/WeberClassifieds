@@ -5,12 +5,15 @@ import VueResource from 'vue-resource'
 
 // Containers
 import _Dashboard from 'containers/Dashboard'
+import _Profile from 'containers/Profile'
 
 // Views
 import Login from 'views/Login'
 import Signup from 'views/Signup'
 import CreatePost from 'views/CreatePost'
-import Profile from '../views/EditProfile.vue'
+import EditProfile from 'views/EditProfile'
+import Profile from 'views/Profile'
+import MyPosts from 'views/MyPosts'
 
 // Views - Components
 import Items from '../components/items.vue'
@@ -37,14 +40,14 @@ export default new Router({
           component: Items
         },
         {
-          path: '/profile',
-          name: 'Edit Profile',
-          component: Profile
-        },
-        {
           path: '/createpost',
           name: 'Create Post',
           component: CreatePost
+        },
+        {
+          path: '/myposts',
+          name: 'My Posts',
+          component: MyPosts
         }
       ]
     },
@@ -57,6 +60,23 @@ export default new Router({
       path: '/signup',
       name: 'Signup',
       component: Signup
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: _Profile,
+      children: [
+        {
+          path: '/',
+          name: 'Profile',
+          component: Profile
+        },
+        {
+          path: '/editprofile',
+          name: 'Edit Profile',
+          component: EditProfile
+        }
+      ]
     }
   ]
 })

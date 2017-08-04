@@ -1,6 +1,6 @@
 <template>
   <div class="editprofile">
-    <div class="container-fluid">
+    <div class="container">
       <br>
       <!--Top Banner-->
       <div
