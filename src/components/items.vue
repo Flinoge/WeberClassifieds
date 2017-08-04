@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ category }}
     <div class="my-1 row">
       <div class="col-3">
         <ui-select :options="['10','25','50']" v-model="perPage" label="Items per Page" placeholder="10">
@@ -63,6 +64,40 @@
 
   export default {
     name: 'Items',
+    props: {
+      to: {
+        type: String,
+        required: true
+      },
+      category: {
+        type: String,
+        required: true
+      },
+      photos: {
+        type: String,
+        required: true
+      },
+      type: {
+        type: String,
+        required: true
+      },
+      time: {
+        type: String,
+        required: true
+      },
+      from: {
+        type: String,
+        required: true
+      },
+      citystate: {
+        type: String,
+        required: true
+      },
+      keyWord: {
+        type: String,
+        required: true
+      }
+    },
     components: {
       UiButton,
       UiSelect,
@@ -103,6 +138,19 @@
         } else {
           return 'accent'
         }
+      },
+      changeItems (type) {
+        axios({
+          method: 'get',
+          url: 'https://g3project.sytes.net/weberclassifieds/listings?price=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
+          headers: {
+            authToken: localStorage.getItem('cert')
+          }
+        }).then(response => {
+          this.items = response.data
+        }).catch(error => {
+          console.log(error)
+        })
       }
     },
     computed: {
@@ -129,7 +177,7 @@
     mounted () {
       axios({
         method: 'get',
-        url: 'https://g3project.sytes.net/weberclassifieds/listings',
+        url: 'https://g3project.sytes.net/weberclassifieds/listings?price=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
         headers: {
           authToken: localStorage.getItem('cert')
         }
@@ -138,6 +186,32 @@
       }).catch(error => {
         console.log(error)
       })
+    },
+    watch: {
+      time: function (val) {
+        this.changeItems(val)
+      },
+      to: function (val) {
+        this.changeItems(val)
+      },
+      category: function (val) {
+        this.changeItems(val)
+      },
+      photos: function (val) {
+        this.changeItems(val)
+      },
+      type: function (val) {
+        this.changeItems(val)
+      },
+      from: function (val) {
+        this.changeItems(val)
+      },
+      citystate: function (val) {
+        this.changeItems(val)
+      },
+      keyWord: function (val) {
+        this.changeItems(val)
+      }
     },
     data () {
       return {

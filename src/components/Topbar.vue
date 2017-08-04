@@ -21,8 +21,7 @@
       </ul>
 
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" style="color: black;" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" style="color:white" type="submit">Search</button>
+        <input class="form-control mr-sm-2" type="text" style="color: black;" placeholder="Search" v-model="keyWord" @input="keyWordChange">
       </form>
 
     </div>
@@ -32,10 +31,21 @@
 <script>
   export default {
     name: 'main',
+    props: {
+      keyWordChange: {
+        type: Function,
+        required: true
+      }
+    },
     methods: {
       logout () {
         localStorage.setItem('cert', '')
         localStorage.setItem('refreshCert', '')
+      }
+    },
+    data () {
+      return {
+        keyWord: ''
       }
     }
   }

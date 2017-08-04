@@ -38,7 +38,6 @@
           authToken: localStorage.getItem('cert')
         }
       }).then(response => {
-        console.log(response)
         window.itemInfo = response.data
       }).catch(error => {
         console.log(error)
@@ -46,7 +45,9 @@
     },
     data () {
       return {
-        itemInfo: []
+        itemInfo: {
+          user: ''
+        }
       }
     }
   }

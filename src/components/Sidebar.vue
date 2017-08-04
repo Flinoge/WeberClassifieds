@@ -6,55 +6,15 @@
         <div slot="header" style="color: black;">
           Categories
         </div>
-
-        <ui-checkbox
-          value="announcements"
-          v-model="announcements"
-          label="Announcements"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="books"
-          v-model="books"
-          label="Books and Media"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="computers"
-          v-model="computers"
-          label="Computers"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="electronics"
-          v-model="electronics"
-          label="Electronics"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="trade"
-          v-model="trade"
-          label="For Trade or Barter"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="free"
-          v-model="free"
-          label="Free"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="general"
-          v-model="general"
-          label="General"
-          color="accent"
-        ></ui-checkbox>
+        <ui-radio-group
+          name="category"
+          vertical
+          :options="['', 'Announcements','Books and Media','Computers',
+                'Electronics', 'For Trade or Barter', 'Free',
+                'General']"
+          v-model="category"
+          @change="categoryChange"
+        ></ui-radio-group>
 
       </ui-collapsible>
 
@@ -68,6 +28,7 @@
           label="From"
           placeholder="From"
           v-model="from"
+          @input="fromChange"
         ></ui-textbox>
 
         <ui-textbox
@@ -75,6 +36,7 @@
           label="To"
           placeholder="To"
           v-model="to"
+          @input="toChange"
         ></ui-textbox>
 
       </ui-collapsible>
@@ -83,74 +45,39 @@
         <div slot="header" style="color: black;">
           Listing Photos
         </div>
-
-        <ui-checkbox
-          value="hasphotos"
-          v-model="hasphotos"
-          label="Has Photos"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="nophotos"
-          v-model="nophotos"
-          label="No Photos"
-          color="accent"
-        ></ui-checkbox>
+        <ui-radio-group
+          name="photos"
+          vertical
+          :options="['', 'Has Photos','No Photos']"
+          v-model="photos"
+          @change="photosChange"
+        ></ui-radio-group>
       </ui-collapsible>
 
       <ui-collapsible  style="background-color: white; color: black;">
         <div slot="header" style="color: black;">
           Listing Type
         </div>
-
-        <ui-checkbox
-          value="forsale"
-          v-model="forsale"
-          label="For Sale"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="insearchof"
-          v-model="insearchof"
-          label="In search of"
-          color="accent"
-        ></ui-checkbox>
+        <ui-radio-group
+          name="type"
+          vertical
+          :options="['', 'For Sale','In Search Of']"
+          v-model="type"
+          @change="typeChange"
+        ></ui-radio-group>
       </ui-collapsible>
 
       <ui-collapsible  style="background-color: white; color: black;">
         <div slot="header" style="color: black;">
           Listing Posted
         </div>
-
-        <ui-checkbox
-          value="lasthour"
-          v-model="lasthour"
-          label="Last Hour"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="last24"
-          v-model="last24"
-          label="Last 24 Hours"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="lastweek"
-          v-model="lastweek"
-          label="Last 7 Days"
-          color="accent"
-        ></ui-checkbox>
-
-        <ui-checkbox
-          value="last30"
-          v-model="last30"
-          label="Last 30 days"
-          color="accent"
-        ></ui-checkbox>
+        <ui-radio-group
+          name="time"
+          vertical
+          :options="['', 'Last Hour','Last 24 Hours', 'Last 7 Days', 'Last 30 Days']"
+          v-model="time"
+          @change="timeChange"
+        ></ui-radio-group>
       </ui-collapsible>
 
       <ui-collapsible  style="background-color: white; color: black;">
@@ -163,14 +90,11 @@
           label="City/State"
           placeholder="Enter a city or state"
           v-model="citystate"
+          @input="citystateChange"
         ></ui-textbox>
       </ui-collapsible>
 
       <br>
-
-        <ui-button color="primary" style="border-color: black; width: 100%; text-align: center; background-color: rgb(73, 38, 101);" raised :size="size">Submit</ui-button>
-
-
     </div>
   </div>
 </template>
@@ -182,37 +106,58 @@
   import UiCheckbox from 'keen-ui/src/UiCheckbox.vue'
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import UiRadioGroup from 'keen-ui/src/UiRadioGroup.vue'
 
   export default {
+    props: {
+      toChange: {
+        type: Function,
+        required: true
+      },
+      categoryChange: {
+        type: Function,
+        required: true
+      },
+      photosChange: {
+        type: Function,
+        required: true
+      },
+      typeChange: {
+        type: Function,
+        required: true
+      },
+      timeChange: {
+        type: Function,
+        required: true
+      },
+      fromChange: {
+        type: Function,
+        required: true
+      },
+      citystateChange: {
+        type: Function,
+        required: true
+      }
+    },
     components: {
       UiCollapsible,
       UiTab,
       UiTabs,
       UiCheckbox,
       UiTextbox,
-      UiButton
+      UiButton,
+      UiRadioGroup
     },
     data () {
       return {
+        size: 'sm',
         citystate: '',
         from: '',
         to: '',
-        announcements: '',
-        books: '',
-        computers: '',
-        electronics: '',
-        trade: '',
-        free: '',
-        general: '',
-        hasphotos: '',
-        nophotos: '',
-        forsale: '',
-        insearchof: '',
-        lasthour: '',
-        last24: '',
-        lastweek: '',
-        last30: '',
-        size: 'sm'
+        category: '',
+        photos: '',
+        type: '',
+        time: ''
       }
     },
     name: 'main'
