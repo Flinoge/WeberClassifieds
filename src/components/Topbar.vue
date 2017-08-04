@@ -15,6 +15,9 @@
           <a class="nav-link" href="#/profile">Profile</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="#/myposts">My Posts</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#/">Logout</a>
         </li>
 
