@@ -1,38 +1,38 @@
 <template>
   <div class="item">
-    <div class="col-sm-12">
-      <ui-textbox
-        floating-label
-        label="Title"
-        placeholder=""
-        v-model="title"
-      ></ui-textbox>
-    </div>
+    <!--<div class="col-sm-12">-->
+      <!--<ui-textbox-->
+        <!--floating-label-->
+        <!--label="Title"-->
+        <!--placeholder=""-->
+        <!--v-model="title"-->
+      <!--&gt;</ui-textbox>-->
+    <!--</div>-->
 
-    <div class="col-sm-12">
-      <ui-textbox
-        floating-label
-        label="Price"
-        placeholder=""
-        v-model="price"
-      ></ui-textbox>
-    </div>
+    <!--<div class="col-sm-12">-->
+      <!--<ui-textbox-->
+        <!--floating-label-->
+        <!--label="Price"-->
+        <!--placeholder=""-->
+        <!--v-model="price"-->
+      <!--&gt;</ui-textbox>-->
+    <!--</div>-->
 
 
-    <div class="col-sm-12">
-      <ui-textbox
-        floating-label
-        label="Username"
-        placeholder=""
-        v-model="title"
-      ></ui-textbox>
-    </div>
+    <!--<div class="col-sm-12">-->
+      <!--<ui-textbox-->
+        <!--floating-label-->
+        <!--label="Username"-->
+        <!--placeholder=""-->
+        <!--v-model="title"-->
+      <!--&gt;</ui-textbox>-->
+    <!--</div>-->
 
-    <div><b>asdfasdf:</b></div>
-    <div><b>Category:</b> {{ itemInfo.category }}</div>
-    <div><b>Price:</b> {{ itemInfo.price }}</div>
-    <div><b>Listing Type:</b> {{ itemInfo.type }}</div>
-    <div><b>Message:</b> {{ itemInfo.message }}</div>
+    <!--<div><b>asdfasdf:</b></div>-->
+    <!--<div><b>Category:</b> {{ itemInfo.category }}</div>-->
+    <!--<div><b>Price:</b> {{ itemInfo.price }}</div>-->
+    <!--<div><b>Listing Type:</b> {{ itemInfo.type }}</div>-->
+    <!--<div><b>Message:</b> {{ itemInfo.message }}</div>-->
   </div>
 </template>
 
@@ -61,11 +61,12 @@
       let window = this
       axios({
         method: 'get',
-        url: 'https://www.weberclassifieds.website/restservice/listings/' + this.itemID,
+        url: 'https://www.weberclassifieds.website/rest_service/listings/' + this.itemID,
         headers: {
           authToken: localStorage.getItem('cert')
         }
       }).then(response => {
+        console.log(response)
         window.itemInfo = response.data
       }).catch(error => {
         console.log(error)

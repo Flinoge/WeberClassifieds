@@ -48,7 +48,7 @@
 
 <script>
   import axios from 'axios'
-  import { UiSelect, UiButton, UiModal } from 'keen-ui'
+  import { UiSelect, UiButton, UiModal, UiFab } from 'keen-ui'
   import MyPost from '../components/MyPost.vue'
 
   export default {
@@ -59,7 +59,8 @@
       UiSelect,
       UiButton,
       UiModal,
-      MyPost
+      MyPost,
+      UiFab
     },
     methods: {
       openWeirdModal (ref) {
@@ -114,6 +115,7 @@
           authToken: localStorage.getItem('cert')
         }
       }).then(response => {
+        console.log(response.data)
         this.items = response.data
       }).catch(error => {
         console.log(error)
