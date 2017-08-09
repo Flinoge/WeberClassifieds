@@ -105,8 +105,8 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
-              label="Password"
-              placeholder="Change your password"
+              label="New Password"
+              placeholder="New password"
               type="password"
               v-model="password"
               error="Password must be greater than 8 characters"
@@ -123,8 +123,8 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
-              label="Confirm Password"
-              placeholder="Confirm your password"
+              label="Confirm New Password"
+              placeholder="Confirm New Password"
               type="password"
               v-model="confirmpassword"
               error="Passwords must match"
@@ -141,11 +141,9 @@
 
         <div class="form-group">
           <div class="col-sm-12">
-            <a class="nav-link" href="#/profile">
             <ui-button color="primary" style="border-color:black; background-color: rgb(73, 38, 101);" raised
-                       :size="size">Save Changes
+                       :size="size" @click="updateProfile">Save Changes
             </ui-button>
-            </a>
           </div>
         </div>
 
@@ -193,7 +191,10 @@
         this.fname = response.data.firstName
         this.lname = response.data.lastName
         this.address1 = response.data.address.address1
-        console.log(response)
+        this.city = response.data.address.city
+        this.state = response.data.address.state
+        this.zip = response.data.address.zip
+        this.accessLevel = response.data.accessLevel
       }).catch(error => {
         console.log(error)
       })
@@ -208,6 +209,7 @@
             authToken: localStorage.getItem('cert')
           },
           data: {
+            id: localStorage.getItem('userid'),
             userName: this.username,
             password: this.password,
             wNumber: this.wnumber,
@@ -218,11 +220,12 @@
               address1: this.address1,
               city: this.city,
               state: this.state,
-              zip: this.state
+              zip: this.zip
             },
             accessLevel: this.accessLevel
           }
         }).then(response => {
+          console.log(response)
           this.$router.push('profile')
         }).catch(error => {
           console.log(error)

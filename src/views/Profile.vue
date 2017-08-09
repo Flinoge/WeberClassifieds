@@ -50,7 +50,7 @@
       }).then(response => {
         this.wNumber = response.data.wNumber
         this.username = response.data.userName
-        console.log(response)
+//        console.log(response)
       }).catch(error => {
         console.log(error)
       })
