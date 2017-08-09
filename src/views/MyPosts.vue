@@ -41,7 +41,7 @@
       </tbody>
     </table>
     <ui-modal size="large" v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.title">
-      <item :itemID="item.id"></item>
+      <my-post :itemID="item.id"></my-post>
     </ui-modal>
   </div>
 </template>
@@ -49,6 +49,7 @@
 <script>
   import axios from 'axios'
   import { UiSelect, UiButton, UiModal } from 'keen-ui'
+  import MyPost from '../components/MyPost.vue'
 
   export default {
     name: 'Item',
@@ -57,7 +58,8 @@
     components: {
       UiSelect,
       UiButton,
-      UiModal
+      UiModal,
+      MyPost
     },
     methods: {
       sortPrice () {
