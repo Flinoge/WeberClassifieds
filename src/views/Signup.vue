@@ -290,6 +290,7 @@
             password: this.password,
             wNumber: this.wnumber,
             email: this.email,
+            phone: this.phone,
             firstName: this.fname,
             lastName: this.lname,
             address: {

@@ -2,13 +2,14 @@
   <div class="item">
     <div><b>Title:</b> {{ itemInfo.title }}</div>
     <div><b>Category:</b> {{ itemInfo.category }}</div>
-    <div><b>Price:</b> {{ itemInfo.price }}</div>
+    <div><b>Price:</b> ${{ itemInfo.price }}</div>
     <div><b>Listing Type:</b> {{ itemInfo.type }}</div>
     <div><b>Message:</b> {{ itemInfo.message }}</div>
     <br>
     <b>Seller Contact Info</b>
     <div>Email: <a href="mailto:">{{ itemInfo.user.email }}</a></div>
     <div>Phone Number: {{ itemInfo.user.phone }}</div>
+    <div>Address: {{ itemInfo.user.address.address1 }} {{ itemInfo.user.address.city }}, {{ itemInfo.user.address.state }} {{ itemInfo.user.address.zip }}</div>
   </div>
 </template>
 
@@ -46,7 +47,9 @@
     data () {
       return {
         itemInfo: {
-          user: ''
+          user: {
+            address: ''
+          }
         }
       }
     }

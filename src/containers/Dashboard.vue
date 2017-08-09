@@ -2,10 +2,10 @@
   <div class="app">
     <topbar :keyWordChange="keyWordChange"/>
     <div class="app-body">
-      <sidebar :toChange="toChange" :categoryChange="categoryChange" :photosChange="photosChange" :typeChange="typeChange" :timeChange="timeChange" :fromChange="fromChange" :citystateChange="citystateChange"/>
+      <sidebar :toChange="toChange" :categoryChange="categoryChange" :photosChange="photosChange" :typeChange="typeChange" :timeChange="timeChange" :fromChange="fromChange" :stateChange="stateChange" :cityChange="cityChange"/>
       <main class="main">
         <div class="container-fluid">
-          <router-view :to="to" :category="category" :photos="photos" :type="type" :time="time" :from="from" :citystate="citystate" :keyWord="keyWord"></router-view>
+          <router-view :to="to" :category="category" :photos="photos" :type="type" :time="time" :from="from" :city="city" :state="state" :keyWord="keyWord"></router-view>
         </div>
       </main>
     </div>
@@ -31,8 +31,11 @@
       categoryChange (v) {
         this.category = v
       },
-      citystateChange (v) {
-        this.citystate = v
+      cityChange (v) {
+        this.city = v
+      },
+      stateChange (v) {
+        this.state = v
       },
       fromChange (v) {
         this.from = v
@@ -47,6 +50,7 @@
         this.time = v
       },
       keyWordChange (v) {
+        console.log(v)
         this.keyWord = v
       },
       toChange (v) {
@@ -56,7 +60,8 @@
     data () {
       return {
         example: 'Hi',
-        citystate: '',
+        city: '',
+        state: '',
         from: '',
         to: '',
         category: '',

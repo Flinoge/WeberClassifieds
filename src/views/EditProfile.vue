@@ -37,6 +37,25 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
+              label="Phone"
+              error="This field is required"
+              placeholder="Edit your phone"
+              type="phone"
+
+              v-model="phone"
+
+              :invalid="phoneTouched && email.length === 0"
+              @touch="phoneTouched = true"
+
+              required
+            ></ui-textbox>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-12">
+            <ui-textbox
+              floating-label
               label="Address Line"
               placeholder="Edit your address"
               v-model="address1"
@@ -195,6 +214,7 @@
         this.state = response.data.address.state
         this.zip = response.data.address.zip
         this.accessLevel = response.data.accessLevel
+        this.phone = response.data.phone
       }).catch(error => {
         console.log(error)
       })
@@ -214,6 +234,7 @@
             password: this.password,
             wNumber: this.wnumber,
             email: this.email,
+            phone: this.phone,
             firstName: this.fname,
             lastName: this.lname,
             address: {
@@ -248,6 +269,8 @@
         state: '',
         stateTouched: false,
         zip: '',
+        phone: '',
+        phoneTouched: false,
         zipTouched: false,
         password: '',
         passwordTouched: false,

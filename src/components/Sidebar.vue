@@ -87,10 +87,17 @@
 
         <ui-textbox
           floating-label
-          label="City/State"
-          placeholder="Enter a city or state"
-          v-model="citystate"
-          @input="citystateChange"
+          label="City"
+          placeholder="Enter a city"
+          v-model="city"
+          @input="cityChange"
+        ></ui-textbox>
+        <ui-textbox
+          floating-label
+          label="State"
+          placeholder="Enter a state"
+          v-model="state"
+          @input="stateChange"
         ></ui-textbox>
       </ui-collapsible>
 
@@ -134,7 +141,11 @@
         type: Function,
         required: true
       },
-      citystateChange: {
+      cityChange: {
+        type: Function,
+        required: true
+      },
+      stateChange: {
         type: Function,
         required: true
       }
@@ -151,7 +162,8 @@
     data () {
       return {
         size: 'sm',
-        citystate: '',
+        city: '',
+        state: '',
         from: '',
         to: '',
         category: '',

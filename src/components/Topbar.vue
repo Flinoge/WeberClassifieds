@@ -23,17 +23,29 @@
 
       </ul>
 
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" style="color: black;" placeholder="Search" v-model="keyWord" @input="keyWordChange">
-      </form>
+      <div class="searchBar">
+        <ui-textbox
+          floating-label
+          class="float-right searchBar"
+          label="Search"
+          placeholder="Search"
+          v-model="keyWord"
+          @input="keyWordChange"
+        ></ui-textbox>
+      </div>
 
     </div>
   </nav>
 </template>
 
 <script>
+  import { UiTextbox } from 'keen-ui'
+
   export default {
     name: 'main',
+    components: {
+      UiTextbox
+    },
     props: {
       keyWordChange: {
         type: Function
@@ -52,3 +64,10 @@
     }
   }
 </script>
+
+<style scoped>
+  .searchBar {
+    width: 40%;
+    color: white;
+  }
+</style>

@@ -25,7 +25,7 @@
             error="This field is required"
             v-model="itemInfo.title"
 
-            :invalid="titleTouched && title.length === 0"
+            :invalid="titleTouched && itemInfo.title.length === 0"
             @touch="titleTouched = true"
 
             required
@@ -42,7 +42,7 @@
             error="This field is required"
             v-model="itemInfo.price"
 
-            :invalid="priceTouched && price.length === 0"
+            :invalid="priceTouched && itemInfo.price.length === 0"
             @touch="priceTouched = true"
 
             required
@@ -74,7 +74,7 @@
       <div class="form-group">
         <div class="col-sm-12">
           <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised
-                     :size="size">Save listing
+                     :size="size" @click="saveListing">Save listing
           </ui-button>
         </div>
       </div>
@@ -103,11 +103,31 @@
       UiSelect
     },
     methods: {
+      saveListing () {
+        axios({
+          method: 'put',
+          url: 'https://www.weberclassifieds.website/rest_service/listings/' + this.itemID,
+          headers: {
+            authToken: localStorage.getItem('cert')
+          },
+          data: {
+            id: this.itemID,
+            title: this.itemInfo.title,
+            message: this.itemInfo.message,
+            user: {id: localStorage.getItem('userid')},
+            price: this.itemInfo.price,
+            type: this.itemInfo.listtype,
+            category: this.itemInfo.category
+          }
+        }).then(response => {
+        }).catch(error => {
+          console.log(error)
+        })
+      }
     },
     computed: {
     },
     mounted () {
-      let window = this
       axios({
         method: 'get',
         url: 'https://www.weberclassifieds.website/rest_service/listings/' + this.itemID,
@@ -115,8 +135,7 @@
           authToken: localStorage.getItem('cert')
         }
       }).then(response => {
-        console.log(response)
-        window.itemInfo = response.data
+        this.itemInfo = response.data
       }).catch(error => {
         console.log(error)
       })
@@ -130,7 +149,10 @@
           price: '',
           type: '',
           category: ''
-        }
+        },
+        titleTouched: false,
+        priceTouched: false,
+        size: 'sm'
       }
     }
   }

@@ -38,12 +38,12 @@
           <div class="col-12"><h3>{{ item.title }}</h3></div>
           <div class="col-12">{{ item.messageSummary }}...</div>
         </td>
-        <td>{{ item.price }}</td>
+        <td>${{ item.price }}</td>
         <td>{{ item.user.address.city }}</td>
       </tr>
       </tbody>
     </table>
-    <ui-modal ref="createpost" title="Create a Listing">
+    <ui-modal ref="createpost" title="Create a Listing" @close="updatePosts">
       <create-post></create-post>
     </ui-modal>
     <ui-modal size="large" v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.title">
@@ -88,7 +88,11 @@
         type: String,
         required: true
       },
-      citystate: {
+      city: {
+        type: String,
+        required: true
+      },
+      state: {
         type: String,
         required: true
       },
@@ -141,7 +145,20 @@
       changeItems (type) {
         axios({
           method: 'get',
-          url: 'https://www.weberclassifieds.website/rest_service/listings?price=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
+          url: 'https://www.weberclassifieds.website/rest_service/listings?minPrice=' + this.from + '&state=' + this.state + '&searchTime=' + this.time + '&city=' + this.city + '&maxPrice=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
+          headers: {
+            authToken: localStorage.getItem('cert')
+          }
+        }).then(response => {
+          this.items = response.data
+        }).catch(error => {
+          console.log(error)
+        })
+      },
+      updatePosts () {
+        axios({
+          method: 'get',
+          url: 'https://www.weberclassifieds.website/rest_service/listings?minPrice=' + this.from + '&searchTime=' + this.time + '&city=' + this.city + '&maxPrice=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
           headers: {
             authToken: localStorage.getItem('cert')
           }
@@ -176,7 +193,7 @@
     mounted () {
       axios({
         method: 'get',
-        url: 'https://www.weberclassifieds.website/rest_service/listings?price=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
+        url: 'https://www.weberclassifieds.website/rest_service/listings?minPrice=' + this.from + '&searchTime=' + this.time + '&city=' + this.city + '&maxPrice=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
         headers: {
           authToken: localStorage.getItem('cert')
         }
@@ -205,7 +222,10 @@
       from: function (val) {
         this.changeItems(val)
       },
-      citystate: function (val) {
+      city: function (val) {
+        this.changeItems(val)
+      },
+      state: function (val) {
         this.changeItems(val)
       },
       keyWord: function (val) {

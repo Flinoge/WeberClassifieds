@@ -40,7 +40,7 @@
       </tr>
       </tbody>
     </table>
-    <ui-modal size="large" v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.title">
+    <ui-modal size="large" v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.title" @close="updatePosts">
       <my-post :itemID="item.id"></my-post>
     </ui-modal>
   </div>
@@ -84,6 +84,19 @@
           })
           this.priceSort = true
         }
+      },
+      updatePosts () {
+        axios({
+          method: 'get',
+          url: 'https://www.weberclassifieds.website/rest_service/users/' + localStorage.getItem('userid') + '/listings',
+          headers: {
+            authToken: localStorage.getItem('cert')
+          }
+        }).then(response => {
+          this.items = response.data
+        }).catch(error => {
+          console.log(error)
+        })
       }
     },
     computed: {
@@ -110,12 +123,11 @@
     mounted () {
       axios({
         method: 'get',
-        url: 'https://www.weberclassifieds.website/rest_service/listings',
+        url: 'https://www.weberclassifieds.website/rest_service/users/' + localStorage.getItem('userid') + '/listings',
         headers: {
           authToken: localStorage.getItem('cert')
         }
       }).then(response => {
-        console.log(response.data)
         this.items = response.data
       }).catch(error => {
         console.log(error)

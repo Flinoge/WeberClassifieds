@@ -44,6 +44,7 @@
             placeholder="Enter your asking price"
             error="This field is required"
             v-model="price"
+            type="number"
 
             :invalid="priceTouched && price.length === 0"
             @touch="priceTouched = true"
