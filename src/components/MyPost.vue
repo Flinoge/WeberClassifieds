@@ -9,7 +9,7 @@
       ></ui-textbox>
     </div>
 
-    <div class="col-sm-12">
+    <div>
       <ui-textbox
         floating-label
         label="Price"
@@ -19,16 +19,7 @@
     </div>
 
 
-    <div class="col-sm-12">
-      <ui-textbox
-        floating-label
-        label="Username"
-        placeholder=""
-        v-model="title"
-      ></ui-textbox>
-    </div>
-
-    <div><b>asdfasdf:</b></div>
+    <div><b><input id="input2" type="text"></b></div>
     <div><b>Category:</b> {{ itemInfo.category }}</div>
     <div><b>Price:</b> {{ itemInfo.price }}</div>
     <div><b>Listing Type:</b> {{ itemInfo.type }}</div>

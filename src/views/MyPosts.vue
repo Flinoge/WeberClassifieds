@@ -48,7 +48,7 @@
 
 <script>
   import axios from 'axios'
-  import { UiSelect, UiButton, UiModal } from 'keen-ui'
+  import { UiSelect, UiButton, UiModal, UiFab } from 'keen-ui'
   import MyPost from '../components/MyPost.vue'
 
   export default {
@@ -59,7 +59,8 @@
       UiSelect,
       UiButton,
       UiModal,
-      MyPost
+      MyPost,
+      UiFab
     },
     methods: {
       openWeirdModal (ref) {
