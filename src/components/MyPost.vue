@@ -1,56 +1,85 @@
 <template>
   <div class="item">
-    <!--<div class="col-sm-12">-->
-      <!--<ui-textbox-->
-        <!--floating-label-->
-        <!--label="Title"-->
-        <!--placeholder=""-->
-        <!--v-model="title"-->
-      <!--&gt;</ui-textbox>-->
-    <!--</div>-->
+    <div class="container-fluid">
 
-<<<<<<< HEAD
-    <div>
-      <ui-textbox
-        floating-label
-        label="Price"
-        placeholder=""
-        v-model="price"
-      ></ui-textbox>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <ui-select
+            floating-label
+            label="Category"
+            placeholder="Select a category"
+            :options="['Announcements','Books and Media','Computers',
+                'Electronics', 'For Trade or Barter', 'Free',
+                'General']"
+            v-model="itemInfo.category"
+          ></ui-select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <ui-textbox
+            floating-label
+            label="Title"
+            placeholder="Enter the title of the post"
+            error="This field is required"
+            v-model="itemInfo.title"
+
+            :invalid="titleTouched && title.length === 0"
+            @touch="titleTouched = true"
+
+            required
+          ></ui-textbox>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <ui-textbox
+            floating-label
+            label="Price"
+            placeholder="Enter your asking price"
+            error="This field is required"
+            v-model="itemInfo.price"
+
+            :invalid="priceTouched && price.length === 0"
+            @touch="priceTouched = true"
+
+            required
+          ></ui-textbox>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <ui-select
+            floating-label
+            label="Listing Type"
+            placeholder="Select one"
+            :options="['For Sale','In Search Of']"
+            v-model="itemInfo.type"
+          ></ui-select>
+        </div>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <h6 style="color: grey;">Description</h6>
+          <textarea class="form-group col-sm-12" style="height: 100px; max-height: 200px;" v-model="itemInfo.message"></textarea>
+        </div>
+      </div>
+
+      <br>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised
+                     :size="size">Save listing
+          </ui-button>
+        </div>
+      </div>
+
     </div>
-
-
-    <div><b><input id="input2" type="text"></b></div>
-    <div><b>Category:</b> {{ itemInfo.category }}</div>
-    <div><b>Price:</b> {{ itemInfo.price }}</div>
-    <div><b>Listing Type:</b> {{ itemInfo.type }}</div>
-    <div><b>Message:</b> {{ itemInfo.message }}</div>
-=======
-    <!--<div class="col-sm-12">-->
-      <!--<ui-textbox-->
-        <!--floating-label-->
-        <!--label="Price"-->
-        <!--placeholder=""-->
-        <!--v-model="price"-->
-      <!--&gt;</ui-textbox>-->
-    <!--</div>-->
-
-
-    <!--<div class="col-sm-12">-->
-      <!--<ui-textbox-->
-        <!--floating-label-->
-        <!--label="Username"-->
-        <!--placeholder=""-->
-        <!--v-model="title"-->
-      <!--&gt;</ui-textbox>-->
-    <!--</div>-->
-
-    <!--<div><b>asdfasdf:</b></div>-->
-    <!--<div><b>Category:</b> {{ itemInfo.category }}</div>-->
-    <!--<div><b>Price:</b> {{ itemInfo.price }}</div>-->
-    <!--<div><b>Listing Type:</b> {{ itemInfo.type }}</div>-->
-    <!--<div><b>Message:</b> {{ itemInfo.message }}</div>-->
->>>>>>> 53ce0be44384389aac213fb2fc7b491426f238e1
   </div>
 </template>
 
@@ -58,6 +87,7 @@
   import axios from 'axios'
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import UiSelect from 'keen-ui/src/UiSelect.vue'
 
   export default {
     name: 'MyPost',
@@ -69,7 +99,8 @@
     },
     components: {
       UiTextbox,
-      UiButton
+      UiButton,
+      UiSelect
     },
     methods: {
     },
@@ -95,7 +126,10 @@
         itemInfo: {
           user: '',
           title: '',
-          price: ''
+          message: '',
+          price: '',
+          type: '',
+          category: ''
         }
       }
     }
