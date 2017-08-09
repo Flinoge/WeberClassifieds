@@ -102,7 +102,7 @@
           localStorage.setItem('refreshCert', response.data.refreshToken)
           axios({
             method: 'get',
-            url: 'https://g3project.sytes.net/weberclassifieds/users?username=' + this.username,
+            url: 'https://www.weberclassifieds.website/restservice/users?username=' + this.username,
             headers: {
               authToken: localStorage.getItem('cert')
             }

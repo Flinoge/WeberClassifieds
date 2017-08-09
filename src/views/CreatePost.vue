@@ -105,7 +105,7 @@
       postListing () {
         axios({
           method: 'post',
-          url: 'https://g3project.sytes.net/weberclassifieds/listings',
+          url: 'https://www.weberclassifieds.website/restservice/listings',
           headers: {
             authToken: localStorage.getItem('cert')
           },
