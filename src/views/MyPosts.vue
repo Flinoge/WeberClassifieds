@@ -62,6 +62,15 @@
       MyPost
     },
     methods: {
+      openWeirdModal (ref) {
+        this.$refs[ref].open()
+      },
+      openModal (ref) {
+        this.$refs[ref][0].open()
+      },
+      closeModal (ref) {
+        this.$refs[ref][0].close()
+      },
       sortPrice () {
         if (this.priceSort) {
           this.items.sort(function (a, b) {
