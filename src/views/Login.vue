@@ -42,7 +42,7 @@
 
 
           <div class="col-sm-12">
-            <ui-button color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised
+            <ui-button id="login" color="primary" style="border-color: black; background-color: rgb(73, 38, 101);" raised
                        size="sm" @click="login">Log In
             </ui-button>
           </div>
@@ -89,6 +89,7 @@
     },
     methods: {
       login () {
+        document.getElementById('login').innerText = 'Signing In...'
         axios({
           method: 'get',
           url: 'https://g3project.sytes.net/weberclassifieds/authentication',
@@ -107,11 +108,14 @@
             }
           }).then(response => {
             localStorage.setItem('userid', response.data[0].id)
+            document.getElementById('login').innerText = 'Sign In'
             this.$router.push('dashboard')
           }).catch(error => {
+            document.getElementById('login').innerText = 'Sign In'
             console.log(error)
           })
         }).catch(error => {
+          document.getElementById('login').innerText = 'Sign In'
           console.log(error)
         })
       }
