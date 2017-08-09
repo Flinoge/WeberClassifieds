@@ -28,7 +28,7 @@
       ></ui-textbox>
     </div>
 
-    <div><b>Title:</b></div>
+    <div><b>asdfasdf:</b></div>
     <div><b>Category:</b> {{ itemInfo.category }}</div>
     <div><b>Price:</b> {{ itemInfo.price }}</div>
     <div><b>Listing Type:</b> {{ itemInfo.type }}</div>
