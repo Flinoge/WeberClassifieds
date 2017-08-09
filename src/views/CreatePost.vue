@@ -105,7 +105,7 @@
       postListing () {
         axios({
           method: 'post',
-          url: 'https://www.weberclassifieds.website/restservice/listings',
+          url: 'https://www.weberclassifieds.website/rest_service/listings',
           headers: {
             authToken: localStorage.getItem('cert')
           },

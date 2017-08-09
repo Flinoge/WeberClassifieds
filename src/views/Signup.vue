@@ -281,7 +281,7 @@
       signup () {
         axios({
           method: 'post',
-          url: 'https://www.weberclassifieds.website/restservice/users',
+          url: 'https://www.weberclassifieds.website/rest_service/users',
           headers: {
             UserCreateToken: '3D!@Aa@Ltvz^XdC0t5vp9F$qd@dn@V#ExVu#soxY%fp08D1eCC'
           },

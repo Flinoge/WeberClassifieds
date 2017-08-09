@@ -91,7 +91,7 @@
       login () {
         axios({
           method: 'get',
-          url: 'https://g3project.sytes.net/weberclassifieds/authentication',
+          url: 'https://www.weberclassifieds.website/rest_service/authentication',
           auth: {
             username: this.username,
             password: this.password
@@ -101,7 +101,7 @@
           localStorage.setItem('refreshCert', response.data.refreshToken)
           axios({
             method: 'get',
-            url: 'https://www.weberclassifieds.website/restservice/users?username=' + this.username,
+            url: 'https://www.weberclassifieds.website/rest_service/users?username=' + this.username,
             headers: {
               authToken: localStorage.getItem('cert')
             }

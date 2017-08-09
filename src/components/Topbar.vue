@@ -36,8 +36,7 @@
     name: 'main',
     props: {
       keyWordChange: {
-        type: Function,
-        required: true
+        type: Function
       }
     },
     methods: {

@@ -37,25 +37,6 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
-              label="Phone"
-              error="This field is required"
-              placeholder="Edit your phone number"
-              type="phone"
-
-              v-model="phone"
-
-              :invalid="phoneTouched && phone.length === 0"
-              @touch="phoneTouched = true"
-
-              required
-            ></ui-textbox>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-12">
-            <ui-textbox
-              floating-label
               label="Address Line"
               placeholder="Edit your address"
               v-model="address1"
@@ -201,11 +182,17 @@
     mounted () {
       axios({
         method: 'get',
-        url: 'https://www.weberclassifieds.website/restservice/users/' + localStorage.getItem('userid'),
+        url: 'https://www.weberclassifieds.website/rest_service/users/' + localStorage.getItem('userid'),
         headers: {
           authToken: localStorage.getItem('cert')
         }
       }).then(response => {
+        this.username = response.data.username
+        this.wnumber = response.data.wNumber
+        this.email = response.data.email
+        this.fname = response.data.firstName
+        this.lname = response.data.lastName
+        this.address1 = response.data.address.address1
         console.log(response)
       }).catch(error => {
         console.log(error)
@@ -216,7 +203,7 @@
       updateProfile () {
         axios({
           method: 'put',
-          url: 'https://www.weberclassifieds.website/restservice/users/' + localStorage.getItem('userid'),
+          url: 'https://www.weberclassifieds.website/rest_service/users/' + localStorage.getItem('userid'),
           headers: {
             authToken: localStorage.getItem('cert')
           },
@@ -262,7 +249,8 @@
         password: '',
         passwordTouched: false,
         confirmpassword: '',
-        confirmpasswordTouched: false
+        confirmpasswordTouched: false,
+        size: 'sm'
       }
     }
   }
