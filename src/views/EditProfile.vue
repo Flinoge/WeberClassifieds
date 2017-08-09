@@ -18,78 +18,6 @@
           <div class="col-sm-12">
             <ui-textbox
               floating-label
-              label="W#"
-              placeholder="Edit your W#"
-              error="This field is required"
-              v-model="wnumber"
-
-              :invalid="wnumberTouched && wnumber.length === 0"
-              @touch="wnumberTouched = true"
-
-              required
-            ></ui-textbox>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-12">
-            <ui-textbox
-              floating-label
-              label="First Name"
-              placeholder="Edit your first name"
-              error="This field is required"
-              v-model="fname"
-
-              :invalid="fnameTouched && fname.length === 0"
-              @touch="fnameTouched = true"
-
-              required
-            ></ui-textbox>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-12">
-            <ui-textbox
-              floating-label
-              autocomplete="off"
-              error="This field is required"
-              label="Last Name"
-              placeholder="Edit your last name"
-
-              v-model="lname"
-
-              :invalid="lnameTouched && lname.length === 0"
-              @touch="lnameTouched = true"
-
-              required
-            ></ui-textbox>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-12">
-            <ui-textbox
-              floating-label
-              autocomplete="off"
-              :error="error"
-              label="Username"
-              placeholder="Edit your username"
-
-              v-model="username"
-
-              :invalid="(usernameTouched && username.length === 0) || postError"
-              @touch="usernameTouched = true"
-
-              required
-            ></ui-textbox>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-12">
-            <ui-textbox
-              floating-label
               label="Email"
               error="This field is required"
               placeholder="Edit your email"
@@ -263,30 +191,68 @@
 <script>
   import UiTextbox from 'keen-ui/src/UiTextbox.vue'
   import UiButton from 'keen-ui/src/UiButton.vue'
+  import axios from 'axios'
   export default {
     name: 'full',
     components: {
       UiTextbox,
       UiButton
     },
+    mounted () {
+      axios({
+        method: 'get',
+        url: 'https://www.weberclassifieds.website/restservice/users/' + localStorage.getItem('userid'),
+        headers: {
+          authToken: localStorage.getItem('cert')
+        }
+      }).then(response => {
+        console.log(response)
+      }).catch(error => {
+        console.log(error)
+      })
+    },
     computed: {},
+    methods: {
+      updateProfile () {
+        axios({
+          method: 'put',
+          url: 'https://www.weberclassifieds.website/restservice/users/' + localStorage.getItem('userid'),
+          headers: {
+            authToken: localStorage.getItem('cert')
+          },
+          data: {
+            userName: this.username,
+            password: this.password,
+            wNumber: this.wnumber,
+            email: this.email,
+            firstName: this.fname,
+            lastName: this.lname,
+            address: {
+              address1: this.address1,
+              city: this.city,
+              state: this.state,
+              zip: this.state
+            },
+            accessLevel: this.accessLevel
+          }
+        }).then(response => {
+          this.$router.push('profile')
+        }).catch(error => {
+          console.log(error)
+        })
+      }
+    },
     data () {
       return {
-        wnumber: '',
-        wnumberTouched: false,
-        fname: '',
-        fnameTouched: false,
-        lname: '',
-        lnameTouched: false,
         username: '',
-        usernameTouched: false,
+        wnumber: '',
+        fname: '',
+        lname: '',
+        accessLevel: '',
         email: '',
         emailTouched: false,
-        degree: '',
-        degreeTouched: false,
         address1: '',
         address1Touched: false,
-        address2: '',
         city: '',
         cityTouched: false,
         state: '',

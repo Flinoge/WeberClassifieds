@@ -141,7 +141,7 @@
       changeItems (type) {
         axios({
           method: 'get',
-          url: 'https://g3project.sytes.net/weberclassifieds/listings?price=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
+          url: 'https://www.weberclassifieds.website/restservice/listings?price=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
           headers: {
             authToken: localStorage.getItem('cert')
           }
@@ -176,7 +176,7 @@
     mounted () {
       axios({
         method: 'get',
-        url: 'https://g3project.sytes.net/weberclassifieds/listings?price=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
+        url: 'https://www.weberclassifieds.website/restservice/listings?price=' + this.to + '&type=' + this.type + '&category=' + this.category + '&keyWord=' + this.keyWord,
         headers: {
           authToken: localStorage.getItem('cert')
         }
