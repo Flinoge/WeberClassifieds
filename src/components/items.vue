@@ -18,7 +18,7 @@
     <table id="itemTable" class="table table-hover table-striped m-0">
       <thead>
       <tr>
-        <th>Picture</th>
+        <th>Date Created</th>
         <th>Item</th>
         <th @click="sortPrice" class="cursor-pointer">Price <i class="fa fa-sort" aria-hidden="true"></i></th>
         <th>Location</th>
@@ -27,12 +27,7 @@
       <tbody class="cursor-pointer">
       <tr v-for="(item, index) in pages[currentPage]" @click="openModal('modal' + index)">
         <td>
-          <ui-fab
-            color="primary"
-            tooltip-position="top center"
-            tooltip="No Picture to Show"
-            size="sm"
-          ><i class="fa fa-picture-o" aria-hidden="true"></i></ui-fab>
+          {{ item.listingCreationDateString }}
         </td>
         <td>
           <div class="col-12"><h3>{{ item.title }}</h3></div>
