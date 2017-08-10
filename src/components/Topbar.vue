@@ -1,29 +1,29 @@
 <template>
-  <nav class="navbar navbar-toggleable-md" style="position: fixed; z-index: 9999; height: 55px; top: 0; width: 100%; background-color: rgb(73, 38, 101);">
-    <button class="navbar-toggler navbar-toggler-right" style="color:white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+  <nav class="navbar navbar-toggleable-md" style="position: fixed; z-index: 9999; height: 55px; top: 0; width: 100%; background-color: lightgrey;">
+    <button class="navbar-toggler navbar-toggler-right" style="color:black;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" style="color:white" href="#/dashboard">Weber Classifieds</a>
+    <a class="navbar-brand" style="color:black" href="#/dashboard">Weber Classifieds</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="#/dashboard">Home</a>
+        <li class="nav-item" style="margin-top: 15px;">
+          <a class="nav-link" href="#/dashboard" style="color: black;">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#/profile">Profile</a>
+        <li class="nav-item" style="margin-top: 15px;">
+          <a class="nav-link" href="#/profile" style="color: black;">Profile</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#/myposts">My Posts</a>
+        <li class="nav-item" style="margin-top: 15px;">
+          <a class="nav-link" href="#/myposts" style="color: black;">My Posts</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#/">Logout</a>
+        <li class="nav-item" style="margin-top: 15px;">
+          <a class="nav-link" href="#/" style="color: black;">Logout</a>
         </li>
 
       </ul>
 
-      <div class="searchBar">
+      <div class="searchBar" style="color: black;">
         <ui-textbox
           floating-label
           class="float-right searchBar"
@@ -68,6 +68,6 @@
 <style scoped>
   .searchBar {
     width: 40%;
-    color: white;
+    color: black;
   }
 </style>
