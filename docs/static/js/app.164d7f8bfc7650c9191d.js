@@ -8750,12 +8750,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "height": "55px",
       "top": "0",
       "width": "100%",
-      "background-color": "rgb(73, 38, 101)"
+      "background-color": "lightgrey"
     }
   }, [_vm._m(0), _vm._v(" "), _c('a', {
     staticClass: "navbar-brand",
     staticStyle: {
-      "color": "white"
+      "color": "black"
     },
     attrs: {
       "href": "#/dashboard"
@@ -8766,7 +8766,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "navbarSupportedContent"
     }
   }, [_vm._m(1), _vm._v(" "), _c('div', {
-    staticClass: "searchBar"
+    staticClass: "searchBar",
+    staticStyle: {
+      "color": "black"
+    }
   }, [_c('ui-textbox', {
     staticClass: "float-right searchBar",
     attrs: {
@@ -8789,7 +8792,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('button', {
     staticClass: "navbar-toggler navbar-toggler-right",
     staticStyle: {
-      "color": "white"
+      "color": "black"
     },
     attrs: {
       "type": "button",
@@ -8803,30 +8806,54 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('ul', {
     staticClass: "navbar-nav mr-auto"
   }, [_c('li', {
-    staticClass: "nav-item"
+    staticClass: "nav-item",
+    staticStyle: {
+      "margin-top": "15px"
+    }
   }, [_c('a', {
     staticClass: "nav-link",
+    staticStyle: {
+      "color": "black"
+    },
     attrs: {
       "href": "#/dashboard"
     }
   }, [_vm._v("Home")])]), _vm._v(" "), _c('li', {
-    staticClass: "nav-item"
+    staticClass: "nav-item",
+    staticStyle: {
+      "margin-top": "15px"
+    }
   }, [_c('a', {
     staticClass: "nav-link",
+    staticStyle: {
+      "color": "black"
+    },
     attrs: {
       "href": "#/profile"
     }
   }, [_vm._v("Profile")])]), _vm._v(" "), _c('li', {
-    staticClass: "nav-item"
+    staticClass: "nav-item",
+    staticStyle: {
+      "margin-top": "15px"
+    }
   }, [_c('a', {
     staticClass: "nav-link",
+    staticStyle: {
+      "color": "black"
+    },
     attrs: {
       "href": "#/myposts"
     }
   }, [_vm._v("My Posts")])]), _vm._v(" "), _c('li', {
-    staticClass: "nav-item"
+    staticClass: "nav-item",
+    staticStyle: {
+      "margin-top": "15px"
+    }
   }, [_c('a', {
     staticClass: "nav-link",
+    staticStyle: {
+      "color": "black"
+    },
     attrs: {
       "href": "#/"
     }
@@ -9330,4 +9357,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[49]);
-//# sourceMappingURL=app.b41fa25e97ad95ccb2a6.js.map
+//# sourceMappingURL=app.164d7f8bfc7650c9191d.js.map
