@@ -4373,10 +4373,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     openWeirdModal(ref) {
       this.$refs[ref].open();
     },
+    closeWeirdModal(ref) {
+      this.$refs[ref].close();
+    },
     openModal(ref) {
       this.$refs[ref][0].open();
     },
     closeModal(ref) {
+      console.log('Close Modal');
       this.$refs[ref][0].close();
     },
     sortPrice() {
@@ -4748,6 +4752,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     UiButton: __WEBPACK_IMPORTED_MODULE_2_keen_ui_src_UiButton_vue___default.a
   },
   computed: {},
+  props: {
+    closeModal: {
+      type: Function
+    }
+  },
   methods: {
     postListing() {
       __WEBPACK_IMPORTED_MODULE_3_axios___default()({
@@ -4765,7 +4774,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           category: this.category
         }
       }).then(response => {
+        alert('Created Post');
+        this.closeModal('createpost'
         // On success of list posting
+        );
       }).catch(error => {
         console.log(error);
       });
@@ -5410,6 +5422,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5430,9 +5458,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         authToken: localStorage.getItem('cert')
       }
     }).then(response => {
-      this.wNumber = response.data.wNumber;
-      this.username = response.data.userName;
-      //        console.log(response)
+      document.getElementById('wnumber').innerText = response.data.wNumber;
+      document.getElementById('username').innerText = response.data.userName;
+      document.getElementById('firstname').innerText = response.data.firstName;
+      document.getElementById('lastname').innerText = response.data.lastName;
+      document.getElementById('phone').innerText = response.data.phone;
+      document.getElementById('email').innerText = response.data.email;
+      document.getElementById('address').innerText = response.data.address.address1;
+      document.getElementById('city').innerText = response.data.address.city;
+      document.getElementById('state').innerText = response.data.address.state;
+      document.getElementById('zip').innerText = response.data.address.zip;
+      // console.log(response)
     }).catch(error => {
       console.log(error);
     });
@@ -5441,6 +5477,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       wNumber: '',
       username: '',
+      firstname: '',
+      lastname: '',
+      email: '',
+      phone: '',
+      address: '',
+      city: '',
+      state: '',
+      zipcode: '',
       size: 'sm'
     };
   }
@@ -7790,38 +7834,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "profile"
-  }, [_c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('ui-textbox', {
-    attrs: {
-      "disabled": "",
-      "label": "W#",
-      "placeholder": "W#"
-    },
-    model: {
-      value: (_vm.wNumber),
-      callback: function($$v) {
-        _vm.wNumber = $$v
-      },
-      expression: "wNumber"
+    staticClass: "profile",
+    staticStyle: {
+      "font-size": "20px"
     }
-  }), _vm._v(" "), _c('ui-textbox', {
-    attrs: {
-      "disabled": "",
-      "label": "Username",
-      "placeholder": "Username"
-    },
-    model: {
-      value: (_vm.username),
-      callback: function($$v) {
-        _vm.username = $$v
-      },
-      expression: "username"
-    }
-  }), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
-  }, [_c('div', {
-    staticClass: "col-sm-12"
-  }, [_c('a', {
+  }, [_c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('br'), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('hr'), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('br'), _vm._v(" "), _vm._m(4), _vm._v(" "), _c('hr'), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6), _vm._v(" "), _vm._m(7), _vm._v(" "), _vm._m(8), _vm._v(" "), _c('br'), _vm._v(" "), _vm._m(9), _vm._v(" "), _c('hr'), _vm._v(" "), _vm._m(10), _vm._v(" "), _vm._m(11), _vm._v(" "), _vm._m(12), _vm._v(" "), _vm._m(13), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('a', {
     staticClass: "nav-link",
     attrs: {
       "href": "#/editprofile"
@@ -7836,8 +7853,121 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "raised": "",
       "size": _vm.size
     }
-  }, [_vm._v("Edit Profile\n      ")])], 1)])])], 1)
-},staticRenderFns: []}
+  }, [_vm._v("Edit Profile\n      ")])], 1)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-sm-12",
+    staticStyle: {
+      "background-color": "rgb(73, 38, 101)",
+      "border-radius": "5px",
+      "color": "white",
+      "padding": "10px"
+    }
+  }, [_c('h3', [_vm._v("My Profile")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12",
+    staticStyle: {
+      "color": "rgb(73, 38, 101)"
+    }
+  }, [_c('h4', [_vm._v("Login Info")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("W Number: ")]), _c('span', {
+    attrs: {
+      "id": "wnumber"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("Username: ")]), _c('span', {
+    attrs: {
+      "id": "username"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12",
+    staticStyle: {
+      "color": "rgb(73, 38, 101)"
+    }
+  }, [_c('h4', [_vm._v("Contact Info")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("First Name: ")]), _c('span', {
+    attrs: {
+      "id": "firstname"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("Last Name: ")]), _c('span', {
+    attrs: {
+      "id": "lastname"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("Phone: ")]), _c('span', {
+    attrs: {
+      "id": "phone"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("Email: ")]), _c('span', {
+    attrs: {
+      "id": "email"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12",
+    staticStyle: {
+      "color": "rgb(73, 38, 101)"
+    }
+  }, [_c('h4', [_vm._v("Address Info")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("Address Line: ")]), _c('span', {
+    attrs: {
+      "id": "address"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("City: ")]), _c('span', {
+    attrs: {
+      "id": "city"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("State: ")]), _c('span', {
+    attrs: {
+      "id": "state"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('b', [_vm._v("Zip: ")]), _c('span', {
+    attrs: {
+      "id": "zip"
+    }
+  })])
+}]}
 
 /***/ }),
 /* 159 */
@@ -8091,7 +8221,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "close": _vm.updatePosts
     }
-  }, [_c('create-post')], 1), _vm._v(" "), _vm._l((_vm.pages[_vm.currentPage]), function(item, index) {
+  }, [_c('create-post', {
+    attrs: {
+      "closeModal": _vm.closeWeirdModal
+    }
+  })], 1), _vm._v(" "), _vm._l((_vm.pages[_vm.currentPage]), function(item, index) {
     return _c('ui-modal', {
       ref: 'modal' + index,
       refInFor: true,
@@ -8192,7 +8326,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('top-bar'), _vm._v(" "), _c('div', {
     staticClass: "app-body"
   }, [_c('main', {
-    staticClass: "profile ml-auto mr-auto"
+    staticClass: "profile ml-auto mr-auto",
+    staticStyle: {
+      "width": "50%"
+    }
   }, [_c('div', {
     staticClass: "container-fluid"
   }, [_c('router-view')], 1)])])], 1)
@@ -9193,4 +9330,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[49]);
-//# sourceMappingURL=app.40e9d81a7cee8f565128.js.map
+//# sourceMappingURL=app.b41fa25e97ad95ccb2a6.js.map

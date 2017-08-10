@@ -39,7 +39,7 @@
       </tbody>
     </table>
     <ui-modal ref="createpost" title="Create a Listing" @close="updatePosts">
-      <create-post></create-post>
+      <create-post :closeModal="closeWeirdModal"></create-post>
     </ui-modal>
     <ui-modal size="large" v-for="(item, index) in pages[currentPage]" :ref="'modal' + index" :title="item.title">
       <item :itemID="item.id"></item>
@@ -108,10 +108,14 @@
       openWeirdModal (ref) {
         this.$refs[ref].open()
       },
+      closeWeirdModal (ref) {
+        this.$refs[ref].close()
+      },
       openModal (ref) {
         this.$refs[ref][0].open()
       },
       closeModal (ref) {
+        console.log('Close Modal')
         this.$refs[ref][0].close()
       },
       sortPrice () {
