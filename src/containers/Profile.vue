@@ -2,7 +2,7 @@
   <div class="app">
     <top-bar/>
     <div class="app-body">
-      <main class="profile ml-auto mr-auto">
+      <main class="profile ml-auto mr-auto" style="width: 50%;">
         <div class="container-fluid">
           <router-view></router-view>
         </div>
