@@ -4312,11 +4312,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -5234,11 +5229,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_keen_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_keen_ui__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_MyPost_vue__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_MyPost_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_MyPost_vue__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -6861,7 +6851,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "itemTable"
     }
-  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Picture")]), _vm._v(" "), _c('th', [_vm._v("Item")]), _vm._v(" "), _c('th', {
+  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Date Created")]), _vm._v(" "), _c('th', [_vm._v("Item")]), _vm._v(" "), _c('th', {
     staticClass: "cursor-pointer",
     on: {
       "click": _vm.sortPrice
@@ -6880,19 +6870,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.openModal('modal' + index)
         }
       }
-    }, [_c('td', [_c('ui-fab', {
-      attrs: {
-        "color": "primary",
-        "tooltip-position": "top center",
-        "tooltip": "No Picture to Show",
-        "size": "sm"
-      }
-    }, [_c('i', {
-      staticClass: "fa fa-picture-o",
-      attrs: {
-        "aria-hidden": "true"
-      }
-    })])], 1), _vm._v(" "), _c('td', [_c('div', {
+    }, [_c('td', [_vm._v("\n        " + _vm._s(item.listingCreationDateString) + "\n      ")]), _vm._v(" "), _c('td', [_c('div', {
       staticClass: "col-12"
     }, [_c('h3', [_vm._v(_vm._s(item.title))])]), _vm._v(" "), _c('div', {
       staticClass: "col-12"
@@ -8008,7 +7986,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "text-decoration": "underline"
     },
     attrs: {
-      "href": "/#/signup"
+      "href": "#/signup"
     }
   }, [_vm._v("here")])])])
 }]}
@@ -8081,7 +8059,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "itemTable"
     }
-  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Picture")]), _vm._v(" "), _c('th', [_vm._v("Item")]), _vm._v(" "), _c('th', {
+  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Date Created")]), _vm._v(" "), _c('th', [_vm._v("Item")]), _vm._v(" "), _c('th', {
     staticClass: "cursor-pointer",
     on: {
       "click": _vm.sortPrice
@@ -8100,19 +8078,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.openModal('modal' + index)
         }
       }
-    }, [_c('td', [_c('ui-fab', {
-      attrs: {
-        "color": "primary",
-        "tooltip-position": "top center",
-        "tooltip": "No Picture to Show",
-        "size": "sm"
-      }
-    }, [_c('i', {
-      staticClass: "fa fa-picture-o",
-      attrs: {
-        "aria-hidden": "true"
-      }
-    })])], 1), _vm._v(" "), _c('td', [_c('div', {
+    }, [_c('td', [_vm._v("\n        " + _vm._s(item.listingCreationDateString) + "\n      ")]), _vm._v(" "), _c('td', [_c('div', {
       staticClass: "col-12"
     }, [_c('h3', [_vm._v(_vm._s(item.title))])]), _vm._v(" "), _c('div', {
       staticClass: "col-12"
@@ -9227,4 +9193,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[49]);
-//# sourceMappingURL=app.22fa2667592e89f181d2.js.map
+//# sourceMappingURL=app.40e9d81a7cee8f565128.js.map

@@ -53,7 +53,7 @@
         <div
           style=" background-color: rgb(73, 38, 101); color: white; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding: 20px; font-size: 20px;">
           <div class="col-sm-12">
-            Don't have an account? Sign up <a href="/#/signup"
+            Don't have an account? Sign up <a href="#/signup"
                                               style="color: white; text-decoration: underline;">here</a>
           </div>
         </div>
