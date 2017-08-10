@@ -102,6 +102,11 @@
       UiButton
     },
     computed: {},
+    props: {
+      closeModal: {
+        type: Function
+      }
+    },
     methods: {
       postListing () {
         axios({
@@ -119,6 +124,8 @@
             category: this.category
           }
         }).then(response => {
+          alert('Created Post')
+          this.closeModal('createpost')
           // On success of list posting
         }).catch(error => {
           console.log(error)
